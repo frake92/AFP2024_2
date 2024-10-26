@@ -142,6 +142,78 @@ követelmények és nemfunkcionális követelmények.
 
 ### 5.2 Menühierarchiák
 
+## Bejelentkezés (Kezdőlap)
+
+- Bejelentkezés
+- Regisztráció
+
+## Főoldal
+
+- Éttermek
+- Kereső
+- Navigációs részleg
+
+## Főoldal(Bejelentkezve)
+
+- Éttermek
+- Kereső
+- Saját profil
+- Navigációs részleg
+- Kijelentkezés
+
+## Főoldal (Admin)
+
+- Éttermek
+- Kereső
+- Saját profil
+- Navigációs részleg
+- Kijelentkezés
+
+
+## Admin panel
+
+- új étterem hozzáadása
+- Éttermek törlése/módosítása
+- Felhasználó törlése
+- Kijelentkezés
+
+## Főoldal (Futár)
+
+- Éttermek
+- Kereső
+- Saját profil
+- Navigációs részleg
+- Kijelentkezés
+
+## Regisztráció
+
+- Adatok megadására szolgáló felület
+- Regisztráció
+- Vissza a kezdőlapra
+
+## Éttermek
+
+- Éttermek információi
+- Étel rendelés
+- Vissza a főoldalra
+
+## Profil módosítása
+
+- Név módosítása
+- Telefonszám módosítása
+- Email cím módosítása
+- Utca/házszám/irányítószám módosítása
+
+## Futár nézet
+
+- Rendelés számot
+- Rendelő neve
+- Rendelő Telefonszáma
+- Rendelő Utca/házszáma
+- Rendelés státusza
+- Következő Rendelés
+
+
 ## 6. Fizikai környezet
 
 - Az alkalmazás web platformra készül, ami asztali számítógépről, hordozható
