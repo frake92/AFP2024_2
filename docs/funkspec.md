@@ -25,6 +25,7 @@
 
 | Kép | Leírás |
 | :-: | :----: |
+| ![kezdőlap.png](https://github.com/frake92/AFP2024_2/blob/main/images/kezdőlap.png) | A kezdőlap tervezete. Ezt bárki számára elérhető. |
 
 ## 9. Forgatókönyvek
 
