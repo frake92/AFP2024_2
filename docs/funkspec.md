@@ -214,7 +214,13 @@ A rendszer ellenőrzi az új adatokat, és frissíti azokat az adatbázisban.
 
 ## 10. Funkció - követelmény megfeleltetése
 
-| 
+| Id | Követelmény | Funkció |
+| --- | --- | --- |
+| 1 | A felhasználók böngészhessék az elérhető ételeket | éttermek megtekintése |
+| 2 | A felhasználók rendeléseket adhassanak le a kosár használatával | Kosárkezelés és rendelés |
+| 3 | Fizetési lehetőségek biztosítása | Fizetési módok integrálása |
+| 4 | A rendelés állapotának nyomon követése elérhető legyen | Rendeléskövetés |
+| 5 | A rendszer biztosítson felhasználói jogosultság-kezelést | Jogosultságkezelés és szerepek |
 
 
 ## 11 Fogalomszótár
