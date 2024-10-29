@@ -43,11 +43,74 @@ A rendszer automatikusan biztosítja az adatvédelemre és a jogszabályokra von
 
 ## 3. Jelenlegi üzleti folyamatok modellje
 
+A HuDora üzleti folyamatai gondosan megtervezettek, hogy maximális kényelmet és hatékonyságot 
+biztosítsanak mind a felhasználók, mind az adminisztrátorok számára. A rendszer célja, hogy egy 
+zökkenőmentes és felhasználóbarát élményt nyújtson, amely hozzájárul a sikeres ételszállítási 
+szolgáltatáshoz.
+
+A felhasználói folyamatok kezdődnek a regisztrációval, amely lehetővé teszi a vásárlók számára, hogy 
+egyszerűen létrehozzanak egy profilt, ahol elmenthetik adataikat és preferenciáikat. A felhasználók 
+az alkalmazáson keresztül könnyedén böngészhetnek a különböző éttermek kínálatában, ahol részletes 
+információkat találnak az ételekről, árakról és értékelésekről. A menük áttekintése és az ételek 
+kosárba helyezése után a vásárlók egyszerűen leadhatják rendelésüket. Az éttermek gyors és hatékony 
+kiszolgálása érdekében a HuDora valós idejű nyomkövetést kínál, lehetővé téve a felhasználók 
+számára, hogy nyomon követhessék a futár érkezését.
+
+Az adminisztrátori folyamatok szintén kulcsfontosságúak a HuDora működésében. Az adminisztrátorok 
+felelősek a platform napi működtetéséért, beleértve az éttermek és menük folyamatos frissítését, 
+valamint új éttermek integrálását. Az adminisztrátorok szorosan együttműködnek a futárokkal, 
+figyelemmel kísérik a rendeléseket és a szállítási időket, hogy biztosítsák a szolgáltatás 
+minőségét. A visszajelzések és értékelések kezelése szintén fontos feladat, mivel ezek segítenek a 
+szolgáltatás folyamatos fejlesztésében és az ügyfélelégedettség növelésében.
+
+A HuDora célja, hogy ezeket a folyamatokat folyamatosan optimalizálja, figyelembe véve a 
+felhasználói és futári visszajelzéseket, valamint a piaci trendeket. Az adatok elemzése és a 
+rendszeres jelentések segítik az adminisztrátorokat a döntéshozatalban, lehetővé téve számukra, hogy 
+a szolgáltatást még versenyképesebbé tegyék. A HuDora innovatív megoldásai révén célja, hogy a 
+legjobb ételszállító szolgáltatást nyújtsa Magyarországon, biztosítva ezzel a vásárlói és futár 
+elégedettséget.
+
 ### 3.1 Felhasználói folyamatok:
+
+A HuDora felhasználói folyamatai célzottan arra épülnek, hogy a vásárlók számára zökkenőmentes és 
+élvezetes ételrendelési élményt nyújtsanak. A felhasználók először regisztrálnak az alkalmazásban, 
+ahol elmenthetik adataikat, kedvenc éttermeiket és korábbi rendeléseiket. Az éttermek széles 
+választéka között könnyedén böngészhetnek, és a kiválasztott ételeket egyszerűen kosárba 
+helyezhetik. A rendelés leadása után a felhasználók valós időben nyomon követhetik a futár 
+érkezését, így biztosítva, hogy az étel frissen és időben érkezzen meg.
+
+
 
 ### 3.2 Adminisztrátori folyamatok:
 
+Az adminisztrátori folyamatok a HuDora működésének kulcsfontosságú részét képezik, biztosítva a 
+platform zökkenőmentes működését. Az adminisztrátorok feladatai közé tartozik az éttermek és menük 
+folyamatos frissítése, az új éttermek integrálása, valamint a felhasználói és futár visszajelzések 
+kezelése. Emellett az adminisztrátorok figyelemmel kísérik a rendeléseket, a futárok teljesítményét, 
+és elemzik az adatokat, hogy folyamatosan javíthassák a szolgáltatás minőségét és a felhasználói 
+élményt. A rendszeres jelentések és elemzések segítségével a HuDora az üzleti folyamatokat 
+optimalizálva biztosítja a piacon való versenyképességet.
+
 ## 4. Igényelt üzleti folyamatok modellje
+
+A HuDora célja, hogy a felhasználói élményt maximálisan megkönnyítse, lehetővé téve az éttermek és 
+ételek gyors és egyszerű böngészését. Az oldal folyamatosan karbantartott és frissített, hogy mindig 
+aktuális ajánlatokat kínáljon. A felhasználók egyszerűen kereshetnek az éttermek között, szűrhetik a 
+választékot ár, értékelés és kategória szerint, így megtalálva a számukra legmegfelelőbb 
+lehetőségeket.
+
+A rendelési folyamat zökkenőmentes, lehetőséget biztosítva a felhasználók számára, hogy a kosarukba 
+helyezzék a kiválasztott ételeket, és egyszerűen leadják rendelésüket. Az éttermek és rendeléseik 
+valós idejű nyomkövetése lehetővé teszi a felhasználók számára, hogy pontosan nyomon követhessék a 
+futár érkezését.
+
+A HuDora adminisztrátori folyamatai is kulcsszerepet játszanak. Az adminok felelnek az éttermek és 
+menük folyamatos frissítéséért, a visszajelzések kezeléséért, valamint a futárok koordinálásáért. A 
+rendszeres adat- és teljesítményelemzés biztosítja a szolgáltatás folyamatos optimalizálását, 
+lehetővé téve a versenyképesség fenntartását a piacon.
+
+A HuDora innovatív megoldásai révén célja, hogy a legjobb ételszállító szolgáltatást nyújtsa 
+Magyarországon, biztosítva ezzel a vásárlói elégedettséget és a felhasználói élményt.
 
 ## 5. Követelménylista
 
@@ -121,3 +184,14 @@ Regisztráció nélkül nem férhet hozzá a részletes értékelésekhez és a 
 * Adatbázis: Az adatbázis olyan strukturált adatok gyűjteménye, amelyeket egy számítógépes rendszer tárol, kezel és lekérdez. Az adatbázis célja, hogy hatékonyan tárolja és hozzáférhetővé tegye a különféle információkat.
 
 * Felhasználó: A felhasználó olyan személy, aki bejelentkezik vagy böngészi az oldalt, és különböző interakciókat végezhet az elérhető funkciók alapján. A felhasználók hozzáférési szintje és jogosultságai eltérőek lehetnek attól függően, hogy regisztrált felhasználókról, vendégekről, vagy különleges jogosultsággal rendelkező szerepkörökről (pl. adminisztrátor) van szó.
+
++ **Optimalizálás** Az optimalizálás olyan állapotot jelent, amelyben valamit a lehető legjobb 
+működésre, teljesítményre vagy hatékonyságra hangoltak.
+
++ **Valós idejű nyomkövetés** A Valós idejű nyomkövetés Technológiai megoldás, amely lehetővé teszi 
+a felhasználók számára, hogy nyomon követhessék a rendelésük szállítását és a futár helyzetét.
+
+ + **Innovatív megoldások** Az Innovatív megoldások olyan új és kreatív ötletek vagy technológiák, 
+ amelyek javítják a szolgáltatásokat vagy folyamatokat.
+
++ **Integráció** Az Integráció új éttermek vagy szolgáltatások hozzáadása a meglévő rendszerhez.
