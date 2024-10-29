@@ -171,42 +171,50 @@ Regisztráció nélkül nem férhet hozzá a részletes értékelésekhez és a 
 ### 9.1 Alap forgatókönyv
 
 Ebben a forgatókönyvben leírjuk a rendszer működésének alapvető folyamatait, amelyek lehetővé teszik az általános felhasználói interakciókat.
- ## 1. Bejelentkezés:
-        A felhasználó megnyitja a bejelentkezési oldalt és megadja a felhasználónevét és jelszavát.
-        A rendszer ellenőrzi a felhasználói adatokat az adatbázisban.
-        Ha a bejelentkezési adatok helyesek, a felhasználó a főoldalra kerül, ahol a szerepkörének megfelelő menüpontok jelennek meg.
-        Hibás bejelentkezési adatok esetén a rendszer figyelmeztetést ad, és a felhasználó újra próbálkozhat.
 
- ## 2. Regisztráció:
-        A felhasználó kitölti a regisztrációs űrlapot a kötelező mezők (név, email, jelszó) megadásával.
-        A rendszer ellenőrzi az adatok helyességét és egyediségét (pl. email-cím).
-        Sikeres regisztráció esetén a rendszer automatikusan alapértelmezett (pl. „felhasználó”) jogosultságot rendel a regisztrált felhasználónak, és átirányítja a főoldalra.
+## 1. Bejelentkezés:
 
- ## 3. Vásárlás (rendelés):
-        A bejelentkezett felhasználó böngészhet az oldalon.
-        Kiválaszt egy terméket, majd rákattint a „Rendelés” gombra.
-        A rendszer megjeleníti a vásárlási információkat (pl. termék ára).        
+A felhasználó megnyitja a bejelentkezési oldalt és megadja a felhasználónevét és jelszavát.
+A rendszer ellenőrzi a felhasználói adatokat az adatbázisban.
+Ha a bejelentkezési adatok helyesek, a felhasználó a főoldalra kerül, ahol a szerepkörének megfelelő menüpontok jelennek meg.
+Hibás bejelentkezési adatok esetén a rendszer figyelmeztetést ad, és a felhasználó újra próbálkozhat.
 
- ## 4. Admin felület elérése:
-        A bejelentkezett admin felhasználó a menüben az „Admin” opcióra kattint.
-        A rendszer megjeleníti az adminisztrációs felületet, ahol az adminisztrátor kezelheti a felhasználókat.
-        Az adminisztrátor hozzáférhet a rendszerstatisztikákhoz és jogosultsági szintekhez is.
+## 2. Regisztráció:
 
- ## 5.  Profilkezelés:
-        A felhasználó megnyitja a profiloldalát, ahol módosíthatja az adatokat, például nevét, email-címét vagy jelszavát.
-        A rendszer ellenőrzi az új adatokat, és frissíti azokat az adatbázisban.
+A felhasználó kitölti a regisztrációs űrlapot a kötelező mezők (név, email, jelszó) megadásával.
+A rendszer ellenőrzi az adatok helyességét és egyediségét (pl. email-cím).
+Sikeres regisztráció esetén a rendszer automatikusan alapértelmezett (pl. „felhasználó”) jogosultságot rendel a regisztrált felhasználónak, és átirányítja a főoldalra.
+
+## 3. Vásárlás (rendelés):
+
+A bejelentkezett felhasználó böngészhet az oldalon.
+Kiválaszt egy terméket, majd rákattint a „Rendelés” gombra.
+A rendszer megjeleníti a vásárlási információkat (pl. termék ára).        
+
+## 4. Admin felület elérése:
+
+A bejelentkezett admin felhasználó a menüben az „Admin” opcióra kattint.
+A rendszer megjeleníti az adminisztrációs felületet, ahol az adminisztrátor kezelheti a felhasználókat.
+Az adminisztrátor hozzáférhet a rendszerstatisztikákhoz és jogosultsági szintekhez is.
+
+## 5.  Profilkezelés:
+
+A felhasználó megnyitja a profiloldalát, ahol módosíthatja az adatokat, például nevét, email-címét vagy jelszavát.
+A rendszer ellenőrzi az új adatokat, és frissíti azokat az adatbázisban.
 
 ### 9.2 Jogosultsági szintek lehetőségei
 
 
 | jogosultásgi szint  | Leírás | Funkciók |
+| --- | --- | --- |
 | Admin | Teljes hozzáféréssel rendelkező felhasználó, aki képes minden felhasználói és rendszerfunkciót kezelni. | Felhasználók kezelése, jogosultsági szintek módosítása  |
 | Felhasználó      | Regisztrált felhasználó, aki hozzáférhet a piachoz és adhat le rendelést.      |  Vásárlás és profilkezelés funkciók elérése      |
-| Látogató          |  Regisztráció és bejelentkezés nélkül böngészhet a rendszeren belül, de rendelést nem tud leadni.         |  - Korlátozott hozzáférés: piachoz, profilokhoz, vásárláshoz nincs hozzáférése         |
+| Látogató          |  Regisztráció és bejelentkezés nélkül böngészhet a rendszeren belül, de rendelést nem tud leadni. |  - Korlátozott hozzáférés: piachoz, profilokhoz, vásárláshoz nincs hozzáférése         |
 | Futár | Regisztrált felhasználó, aki rendelések közül választhat | Aktiv és inaktiv státusz illetve átvéve/kiszállitva állapotok |
 
 ## 10. Funkció - követelmény megfeleltetése
 
+| 
 
 
 ## 11 Fogalomszótár
