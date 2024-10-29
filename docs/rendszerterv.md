@@ -196,7 +196,6 @@ követelmények és nemfunkcionális követelmények.
 - Navigációs részleg
 - Kijelentkezés
 
-
 ## Admin panel
 
 - új étterem hozzáadása
@@ -240,7 +239,6 @@ követelmények és nemfunkcionális követelmények.
 - Rendelés státusza
 - Következő Rendelés
 
-
 ## 6. Fizikai környezet
 
 - Az alkalmazás web platformra készül, ami asztali számítógépről, hordozható
@@ -274,3 +272,10 @@ ezen keresztül tudják a felhasználók a rendszert használni.
 ## 8. Adatbázis terv
 
 ## 9. Implementációs terv
+
+A webszerveren futó php program tartalmazza az üzleti logikát. 
+A felhasználói felület, ami böngészőben megjelenő weboldalak formájában érhető el 
+HTML, Bootstrap, PHP technológiák felhasználásával készülnek. 
+Keretrendszernek Laravel-t fogunk használni. 
+A programok objektum orientált programozási paradigma használatával, 
+MVC modell használata mellett. MySql adatbázis szervert használunk az adatok tárolására.
