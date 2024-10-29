@@ -56,6 +56,38 @@ A rendszer automatikusan biztosítja az adatvédelemre és a jogszabályokra von
 
 ## 6. Használati esetek
 
+- **ADMIN**: 
+Feladata a rendszer teljes körű felügyelete, ennek tesztelésére minden szerepkörbe be tud lépni (látogató, felhasználó, futár), 
+hogy ellenőrizze azok hibamentes működését. 
+Az egész rendszerhez korlátlan hozzáféréssel rendelkezik, így minden felhasználói profilt módosíthat. 
+Ez magában foglalja a jogosultságok, szerepkörök, felhasználónevek és jelszavak kezelését. 
+Új felhasználókat adhat a rendszerhez vagy eltávolíthat onnan szabálysértés esetén. 
+Képes rendszerszintű üzeneteket küldeni minden felhasználónak. 
+Kezelheti az éttermek és ételek adatait, módosíthatja az árakat, akciókat. 
+Felügyeli a rendelések és kiszállítások folyamatát, szükség esetén beavatkozhat.
+
+- **FUTÁR**: 
+Speciális jogosultságokkal rendelkező felhasználó, aki a kiszállításokat végzi. 
+Hozzáfér a számára kiosztott rendelések részleteihez (szállítási cím, telefonszám, rendelés tartalma). 
+Módosíthatja saját státuszát (aktív/inaktív), jelzi a rendelések állapotát (átvéve/kiszállítva). 
+Használhatja az útvonaltervező és navigációs funkciókat. 
+Kommunikálhat a megrendelőkkel és éttermekkel a platform chatrendszerén keresztül. 
+Látja saját teljesítménystatisztikáit és bevételeit.
+
+- **FELHASZNÁLÓ**: 
+Regisztrált felhasználó, aki rendeléseket adhat le az éttermektől. 
+Saját profilt kezelhet, ahol eltárolhatja szállítási címeit és fizetési adatait. 
+Értékelést és visszajelzést adhat az éttermekről, ételekről és futárokról. 
+Nyomon követheti aktív rendeléseit, megtekintheti rendelési előzményeit. 
+Kedvencnek jelölhet éttermeket, használhatja a kosár funkciót, és hozzáférhet a hűségprogramokhoz. 
+Chatben kommunikálhat a futárral és az ügyfélszolgálattal.
+
+- **LÁTOGATÓ**: 
+Nem regisztrált felhasználó, aki böngészheti az éttermek kínálatát, megtekintheti az árakat és az értékeléseket. 
+Használhatja a kereső és szűrő funkciókat, de rendelést nem adhat le. 
+Láthatja az alapvető információkat az éttermekről (nyitvatartás, kiszállítási idő, minimum rendelési összeg). 
+Regisztráció nélkül nem férhet hozzá a részletes értékelésekhez és a személyre szabott funkciókhoz.
+
 ## 7. Megfeleltetés, hogyan fedik le a használati eseteket a követelményeket
 
 ## 8. Képernyőtervek
