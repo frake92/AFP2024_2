@@ -2,7 +2,44 @@
 
 ## 1. Jelenlegi helyzet leírása
 
+Jelenleg az ételrendelés és házhozszállítás piaca több különálló platformon működik, 
+ahol az éttermek és szolgáltatók egyedileg kínálják termékeiket. 
+A vásárlóknak több különböző alkalmazást és weboldalt kell használniuk az optimális ételválaszték és árak megtalálásához, 
+ami időigényes és gyakran nem biztosít elegendő információt a döntéshozatalhoz. 
+Az egyes platformok eltérő felülettel és kategorizálási rendszerrel rendelkeznek, 
+ami megnehezíti a felhasználói élményt.
+
+A rendelési folyamat gyakran bonyolult, és a felhasználóknak minden platformon külön regisztrációra van szükségük. 
+Az ételekről nem állnak rendelkezésre egységes információk (összetevők, allergének, kalóriatartalom), 
+így a vásárlók nem tudják egyszerűen összehasonlítani a különböző éttermek kínálatát. 
+A rendszer hiányosságai közé tartozik az is, hogy nincs valós idejű készletkövetés, így előfordul, 
+hogy a megrendelt étel mégsem elérhető. 
+Továbbá, a vásárlók nem kapnak megfelelő támogatást rendelés után, 
+például a kiszállítás pontos nyomon követése vagy a reklamációk kezelése terén.
+
+Az éttermek és adminisztrátorok számára pedig az ételkínálat kezelése bonyolult és időigényes, 
+mivel nincs egységes rendszer az ételek, árak és akciók egyszerű feltöltésére, szerkesztésére. 
+Az adatvédelem és az élelmiszerbiztonsági előírások betartásának követése is nehézkes a széttagolt platformokon.
+
 ## 2. Vágyálomrendszer leírása
+
+A ShadowWeb új rendszerének célja egy egységes, modern platform létrehozása, 
+amely átlátható és egyszerű felhasználói élményt biztosít mind a vásárlók, 
+mind az adminisztrátorok számára. Az új rendszer lehetővé teszi, 
+hogy a felhasználók egy központi felületen böngésszenek az éttermek kínálata között, 
+és egyszerűen leadják rendeléseiket.
+
+Az oldal regisztrációhoz kötött, így a felhasználók saját fiókot hozhatnak létre, 
+ahol az összeszedett ételeket megrendelhetik és kedvenc éttermeiket hozzáadhatják a profiljukhoz. 
+Az egyszerűsített rendelési folyamat lehetővé teszi, hogy egyetlen fiókkal végezzenek minden tranzakciót, 
+és személyre szabott ajánlatokat kapjanak korábbi rendeléseik alapján.
+
+Adminisztrátori szinten a rendszer biztosítja az étlapok és felhasználói fiókok egyszerű kezelését. 
+Az adminisztrátorok hozzáférhetnek az ételrendelésekhez és frissíthetik az éttermek adatait, szabályozhatják a felhasználói hozzáféréseket. 
+Az új ételek és kategóriák feltöltése, szerkesztése és törlése könnyen megvalósítható lesz, 
+a rendszer pedig figyelemmel kíséri a rendeléseket és a készleteket. 
+Ezenkívül az adminisztrátorok felügyelhetik az új regisztrációkat és eltávolíthatják a szabálysértő felhasználókat. 
+A rendszer automatikusan biztosítja az adatvédelemre és a jogszabályokra vonatkozó előírások betartását.
 
 ## 3. Jelenlegi üzleti folyamatok modellje
 
@@ -46,6 +83,7 @@
 | :-: | :---------: | :-----: |
 
 ## 11 Fogalomszótár
+
 * Admin: Admin vagy másnéven adminisztrátor olyan felhasználói szerepkör, amely különleges jogosultságokkal rendelkezik a weboldal kezeléséhez és fenntartásához. 
 
 * Adatbázis: Az adatbázis olyan strukturált adatok gyűjteménye, amelyeket egy számítógépes rendszer tárol, kezel és lekérdez. Az adatbázis célja, hogy hatékonyan tárolja és hozzáférhetővé tegye a különféle információkat.
