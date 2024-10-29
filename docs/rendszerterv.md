@@ -96,13 +96,23 @@ felhasználói fiókok kezeléséről.
 
 ## 3. Üzleti folyamatok modellje
 
+![Üzleti_folyamatok_modellje.png](https://github.com/frake92/AFP2024_2/blob/main/images/3%20%C3%9Czleti%20folyamatok.png)
+
 ### 3.1 Üzleti szereplők
 
 - Admin
-- Felhasználó
 - Futár
+- Felhasználó
+- Látogató
 
 ### 3.2 Üzleti folyamatok
+
+| Üzleti szereplő | Üzleti szereplő neve | Feladatkör |
+| :-------------: | :------------------: | :--------: |
+| ![Látogató.png](https://github.com/frake92/AFP2024_2/blob/main/images/3.2%20L%C3%A1togat%C3%B3.png) | Látogató | Képes: böngészni az éttermeket és ételeket, regisztrálni. |
+| ![Felhasználó.png](https://github.com/frake92/AFP2024_2/blob/main/images/3.2%20Felhaszn%C3%A1l%C3%B3.png) | Felhasználó | Képes: bejelentkezni, regisztrálni, kijelentkezni, saját adatokat módosítani, böngészni az éttermeket és ételeket, kosár tartalmát megrendelni. |
+| ![Futár.png](https://github.com/frake92/AFP2024_2/blob/main/images/3.2%20Fut%C3%A1r.png) | Futár | Képes: bejelentkezni, kijelentkezni, saját adatokat módosítani, böngészni az éttermeket és ételeket, kosár tartalmát megrendelni, megrendelések megtekintése és elfogadása, elfogadott rendelések adatainak megtekintése. |
+| ![Admin.png](https://github.com/frake92/AFP2024_2/blob/main/images/3.2%20Admin.png) | Admin | Képes: bejelentkezni, kijelentkezni, saját adatokat módosítani, böngészni az éttermeket és ételeket, kosár tartalmát megrendelni, éttermeket és ételeket feltölteni, módosítani és törölni, más felhasználók hozzáadása és törlése. |
 
 ## 4. Követelmények
 
