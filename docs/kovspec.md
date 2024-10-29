@@ -86,13 +86,19 @@ Az adminisztrátorok nyomon követhetik a futárok rendeléskiszállítási áll
 
 ## 1. Rendelések fogadása:
  A futárok a rendszerben kapnak értesítést a rájuk kiosztott rendelésekről, amelyeket egyszerűen áttekinthetnek és igazolhatnak.
- 
+
 ## 2. Kiszállítás optimalizálása: 
 A futárok kiválaszthatják az optimális útvonalat a címekhez, és visszajelzést adhatnak a szállítási tapasztalataikról, hogy az adminisztrátorok javítani tudják a kiszállítási folyamatokat.
 
 ## 6. Követelménylista
 
 ## 7. Fogalomtár
+
+- Regisztráció: A folyamat, amely során egy új felhasználó fiókot hoz létre a rendszerben.
+- Kosár: Virtuális bevásárlókosár, ahol a felhasználó összegyűjtheti a rendelni kívánt ételeket, mielőtt leadná a rendelését.
+- Rendeléskövetés: Olyan funkció, amely lehetővé teszi a felhasználó számára, hogy nyomon kövesse rendelése státuszát.
+- Futár: A rendeléseket kiszállító személy, aki a rendszerben láthatja a rá kiosztott rendeléseket és a kiszállítási címeket.
+- Adminisztrátori felület: Speciális, csak adminisztrátorok számára elérhető kezelői felület, amelyen az ételek és rendelési adatok frissítése és kezelése történik.
 
 + **Innováció** Az innováció új ötletek, megoldások, termékek vagy szolgáltatások kifejlesztését és alkalmazását jelenti, amelyek valamilyen formában javítanak a meglévő rendszereken vagy kielégítik az új igényeket.
 
