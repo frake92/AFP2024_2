@@ -182,9 +182,9 @@ Ebben a forgatókönyvben leírjuk a rendszer működésének alapvető folyamat
         A rendszer ellenőrzi az adatok helyességét és egyediségét (pl. email-cím).
         Sikeres regisztráció esetén a rendszer automatikusan alapértelmezett (pl. „felhasználó”) jogosultságot rendel a regisztrált felhasználónak, és átirányítja a főoldalra.
 
- ## 3. Vásárlás (termék):
+ ## 3. Vásárlás (rendelés):
         A bejelentkezett felhasználó böngészhet az oldalon.
-        Kiválaszt egy terméket, majd rákattint a „Vásárlás” gombra.
+        Kiválaszt egy terméket, majd rákattint a „Rendelés” gombra.
         A rendszer megjeleníti a vásárlási információkat (pl. termék ára).        
 
  ## 4. Admin felület elérése:
@@ -197,6 +197,13 @@ Ebben a forgatókönyvben leírjuk a rendszer működésének alapvető folyamat
         A rendszer ellenőrzi az új adatokat, és frissíti azokat az adatbázisban.
 
 ### 9.2 Jogosultsági szintek lehetőségei
+
+
+| jogosultásgi szint  | Leírás | Funkciók |
+| Admin | Teljes hozzáféréssel rendelkező felhasználó, aki képes minden felhasználói és rendszerfunkciót kezelni. | Felhasználók kezelése, jogosultsági szintek módosítása  |
+| Felhasználó      | Regisztrált felhasználó, aki hozzáférhet a piachoz és adhat le rendelést.      |  Vásárlás és profilkezelés funkciók elérése      |
+| Látogató          |  Regisztráció és bejelentkezés nélkül böngészhet a rendszeren belül, de rendelést nem tud leadni.         |  - Korlátozott hozzáférés: piachoz, profilokhoz, vásárláshoz nincs hozzáférése         |
+| Futár | Regisztrált felhasználó, aki rendelések közül választhat | Aktiv és inaktiv státusz illetve átvéve/kiszállitva állapotok |
 
 ## 10. Funkció - követelmény megfeleltetése
 
