@@ -92,6 +92,18 @@ A futárok kiválaszthatják az optimális útvonalat a címekhez, és visszajel
 
 ## 6. Követelménylista
 
+|  Id |  Követelmény |  Prioritás|
+| --- | --- | --- |
+| 1      |  Regisztráció és bejelentkezés funkció     | Magas |
+| 2      |  Felhasználói fiókadatok kezelése     | Magas |
+| 3      |  Kosár és rendelés összeállítása     | Magas |
+| 4      |  Biztonságos online fizetés     | Magas |
+| 5      |  Rendeléskövetési funkció     | Magas |
+| 6      |  Admin felület az étlap és rendelések kezelésére     | Magas |
+| 7      |  Adatbiztonság és adatvédelem biztosítása     | Magas |
+
+
+
 ## 7. Fogalomtár
 
 - Regisztráció: A folyamat, amely során egy új felhasználó fiókot hoz létre a rendszerben.
