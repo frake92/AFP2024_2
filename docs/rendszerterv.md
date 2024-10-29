@@ -122,9 +122,26 @@ követelmények és nemfunkcionális követelmények.
 
 ### Funkcionális követelmények
 
+- **Rendelések és ételek kezelése**: A rendszer tárolja a rendeléseket és az étlapok adatait, beleértve a képeket és formátumokat, mint például animált gif-ek az ételekről.
+- **Felhasználói profilok kezelése**: A felhasználók regisztrálásakor elmentésre kerülnek a profilképek, felhasználónevek, jelszavak és e-mailek.
+- **Reszponzív kialakítás**: Az oldal működése számítógépen, telefonon és tableten egyaránt biztosított, reszponzív dizájn révén.
+- **Nyilvános étlap**: Az étlapok és ételek listázása belépés nélkül is megtekinthető.
+- **Interakció lehetősége**: A regisztrált felhasználók értékelhetik az ételeket és visszajelzéseket írhatnak, valamint hozzáadhatják kedvencekhez az egyes fogásokat.
+- **Gyors adatbázis-kezelés**: A webes felület hatékonyan kommunikál az adatbázissal, hogy biztosítsa a gyors rendeléskezelést és menüfrissítést.
+- **Futárbarát rendeléskezelés**: Az oldal külön, futárok számára optimalizált felülettel rendelkezik, amely lehetővé teszi a gyors rendeléskövetést, az állapotfrissítést és az útvonalak hatékony megtervezését, hogy a kézbesítés gördülékenyen történhessen.
+
 ### Nemfunkcionális követelmények
 
+- **Felhasználói jogosultságok védelme**: A felhasználók csak saját adataikat módosíthatják, nem férnek hozzá más felhasználók profiladataihoz, csupán a felhasználónevet és a profilképet láthatják.
+- **Könnyű használhatóság**: A felület felhasználóbarát, könnyen kezelhető, minimális technikai ismeretekkel is jól használható.
+- **Adatbázis-kezelés webes felületen**: A rendszer böngészőből érhető el, nem igényel telepítést vagy extra bővítményeket.
+- **Könnyű hozzáférés okoseszközökkel**: Az oldal minden olyan eszközről elérhető, amely rendelkezik internet-hozzáféréssel és böngészővel, például okostelefon, tablet, laptop és asztali számítógép.
+
 ### Támogatott eszközök
+
+- **Internetes hozzáféréssel rendelkező okoseszközök**: Az oldal bármely internetkapcsolattal rendelkező, böngészővel ellátott okoseszközről elérhető.
+- **Okostelefonok, tabletek**: Mobilbarát, reszponzív kialakítás biztosítja a kényelmes használatot kisebb kijelzőkön is.
+- **Laptopok és asztali számítógépek**: A felület asztali gépeken és laptopokon is jól megjelenik, így minden böngészőből használható.
 
 ## 5. Funkcionális terv
 
