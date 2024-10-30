@@ -114,8 +114,16 @@ Magyarországon, biztosítva ezzel a vásárlói elégedettséget és a felhaszn
 
 ## 5. Követelménylista
 
-| Id  | Modul | Név | Leírás |
-| :-: | :---: | :-: | :----: |
+| ID  | Modul       | Név                  | Leírás                                                                                                                         |
+| --- | ----------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| C1  | Felület     | Kezdőlap             | A nem bejelentkezett felhasználókat ez az oldal fogja köszönteni. Itt lehetőséget kínál a belépésre, illetve a regisztrációra. |
+| C2  | Felület     | Éttermek                 | A már bejelentkezett felhasználóknak lesz elérhető ez az oldal, ahol kedvükre válogathatnak az éttermek közül.                  |                                               |
+| C3  | Felület     | Vásárlás             | A felhasználók az éttermek menüpont alatt tudnak ételt vásárolni.                                                                |
+| C4  | Jogosultság | Admin felület        | Admin jogosultsággal rendelkező felhasználók itt tudnak új éttermeket létrehozni és törölni                                      |
+| C5  | Jogosultság | Futár felület        | Futár jogosultsággal rendelkező felhasználók itt tudnak rendeléseket elfogadni és teljesíteni.                                     |
+| C6  | Felület     | Bejelentkezés        | A felhasználók itt tudnak bejelentkezni a rendszerbe.                                                                          |
+| C7  | Felület     | Regisztráció         | A felhasználók itt tudnak fiókot létrehozni, hogy igénybe tudják venni az oldal szolgáltatásait.                               |
+| C8  | Jogosultság | Jogosultsági szintek | - Admin: Éttermek/ételek létrehozása a kinálatra, ezek módosítása vagy törlése.\ -Felhasználó: Éttermek menüben lévő ételek megvásárlása.\ - Futár: Rendelések elfogadása, teljesítése.  |
 
 ## 6. Használati esetek
 
