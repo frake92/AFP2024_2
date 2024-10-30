@@ -161,6 +161,26 @@ Regisztráció nélkül nem férhet hozzá a részletes értékelésekhez és a 
 
 ## 7. Megfeleltetés, hogyan fedik le a használati eseteket a követelményeket
 
++ **K1**,**K2** : A weboldalt úgy készitettük, hogy megnyitásakor a bejelnetkezési oldalt látják.
+Ezért vagy létre kell hozni egy fiókot, vagy ha már megtörtént a létrehozás, akkor be 
+kell jelentkezniük a  weboldalra, hogy elérhessük az oldal tartalmát.
+
++ **K3** : A bejelentkezett felhasználók hozzáférést kapnak az éttermekhez, ahonnan ételt vásárolhatnak. 
+
++ **K4** : A nem regisztált felhasználóknak készitettünk egy egyszerű regisztrációs panelt, ahol 
+néhány adat megadása után regisztrált felhasználók lesznek.
+
++ **K5** : A Főoldalon láthatóak lesznek az éttermek kinálatai. Képre kattintva, átvezeti az 
+étterem által forgalmazott ételekre, ahol megtalálhatóak lesznek, az étel adatai, leirása, ára, illeteve kép az
+ételről nagyobb méretben.
+
++ **K6** : Az Adminok felületén láthatják az aktív éttermeket, illetve képesek 
+feltölteni létrehozni további éttermet, illetve ételeket a felhasználók számára. Továbbá képes módositani vagy törölni 
+felhasználókat.
+
++ **K7** : A regisztrációs felületen lesz egy külön gomb, ahol futárnak lehet jelentkezni. A futárok kezelhetik 
+az aktív rendeléseket, amiket a felhasználók adnak le.
+
 ## 8. Képernyőtervek
 
 | Kép | Leírás |
