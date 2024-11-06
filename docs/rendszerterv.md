@@ -147,7 +147,7 @@ követelmények és nemfunkcionális követelmények.
 
 ### 5.1 Rendszerszereplők
 
-## ADMIN
+#### ADMIN
 
 - Feladata a rendszer teljes felügyelete.
 - Bármely szerepkörbe beléphet a hibamentes működés ellenőrzésére.
@@ -156,12 +156,12 @@ követelmények és nemfunkcionális követelmények.
   jelszó).
 - meglévőket törölhet szabályszegés esetén.
 
-## FELHASZNÁLÓ
+#### FELHASZNÁLÓ
 
 - Joga van az összes tartalom megtekintésére és a rendelési rendszer
   használatára.
 
-## FUTÁR
+#### FUTÁR
 
 - Megtekintheti az aktuális rendeléseket
 - Elfogadhatja a rendeléseket
@@ -169,26 +169,18 @@ követelmények és nemfunkcionális követelmények.
 
 ### 5.2 Menühierarchiák
 
-## Bejelentkezés (Kezdőlap)
+#### Bejelentkezés (Kezdőlap)
 
 - Bejelentkezés
 - Regisztráció
 
-## Főoldal
+#### Főoldal
 
 - Éttermek
 - Kereső
 - Navigációs részleg
 
-## Főoldal(Bejelentkezve)
-
-- Éttermek
-- Kereső
-- Saját profil
-- Navigációs részleg
-- Kijelentkezés
-
-## Főoldal (Admin)
+#### Főoldal(Bejelentkezve)
 
 - Éttermek
 - Kereső
@@ -196,14 +188,22 @@ követelmények és nemfunkcionális követelmények.
 - Navigációs részleg
 - Kijelentkezés
 
-## Admin panel
+#### Főoldal (Admin)
+
+- Éttermek
+- Kereső
+- Saját profil
+- Navigációs részleg
+- Kijelentkezés
+
+#### Admin panel
 
 - új étterem hozzáadása
 - Éttermek törlése/módosítása
 - Felhasználó törlése
 - Kijelentkezés
 
-## Főoldal (Futár)
+#### Főoldal (Futár)
 
 - Éttermek
 - Kereső
@@ -211,26 +211,26 @@ követelmények és nemfunkcionális követelmények.
 - Navigációs részleg
 - Kijelentkezés
 
-## Regisztráció
+#### Regisztráció
 
 - Adatok megadására szolgáló felület
 - Regisztráció
 - Vissza a kezdőlapra
 
-## Éttermek
+#### Éttermek
 
 - Éttermek információi
 - Étel rendelés
 - Vissza a főoldalra
 
-## Profil módosítása
+#### Profil módosítása
 
 - Név módosítása
 - Telefonszám módosítása
 - Email cím módosítása
 - Utca/házszám/irányítószám módosítása
 
-## Futár nézet
+#### Futár nézet
 
 - Rendelés számot
 - Rendelő neve
@@ -270,6 +270,74 @@ A felhasználó felület böngészőben megjelenő html oldalak formájában ér
 ezen keresztül tudják a felhasználók a rendszert használni.
 
 ## 8. Adatbázis terv
+
+### 1. users tábla
+
+Ez a tábla tárolja az összes felhasználó adatait, beleértve a felhasználónevüket, jelszavukat, email címüket, kereszt- és vezetéknevüket, telefonszámukat, valamint szerepkörüket (felhasználó, futár, admin). 
+Az **address_id** mező a **user_addresses** táblához kapcsolja a felhasználó címét.
+
+![users.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20users.png)
+
+### 2. user_addresses tábla
+
+Ez a tábla tárolja a felhasználók címadatait, mint a cím, házszám, irányítószám, város és ország. 
+A címek kapcsolódnak a **users** táblához az **address_id** kulcson keresztül, így minden felhasználóhoz hozzárendelhető egy cím.
+
+![user_addresses.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20user_addresses.png)
+
+### 3. restaurants tábla
+
+Az éttermek adatait tárolja, mint például az étterem neve, címe, telefonszáma, nyitvatartási idő, stb. 
+Az éttermek információit a **foods** tábla használja, hogy az ételek az adott étteremhez rendelve legyenek.
+
+![restaurants.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20restaurants.png)
+
+### 4. foods tábla
+
+Ebben a táblában tárolódnak az éttermekben kapható ételek adatai, beleértve az étel nevét, leírását, árát és a hozzá tartozó étterem azonosítóját. 
+Az éttermek az **restaurants** tábla segítségével vannak összekapcsolva.
+
+![foods.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20foods.png)
+
+### 5. user_carts tábla
+
+Ez a tábla tárolja a felhasználó kosarában lévő ételeket. 
+Minden bejegyzés a felhasználó **user_id**-ját, az étel **food_id**-ját. 
+A kosár tartalma rendelés leadásakor törölhető, és a tábla összekapcsolódik a **users** és **foods** táblákkal.
+
+![user_carts.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20user_carts.png)
+
+### 6. orders tábla
+
+Ez a tábla a felhasználók rendeléseit tárolja. Minden rendeléshez tartozik egy **user_id** (aki leadta a rendelést), **restaurant_id** (melyik étteremtől rendeltek), **status** (rendelés állapota), és az összes rendelés teljes ára. 
+Az **orders** tábla kapcsolódik a **users** és **restaurants** táblákhoz.
+
+![orders.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20orders.png)
+
+### 7. courier_orders tábla
+
+Ebben a táblában tárolódik a futárok által elfogadott rendelés. 
+Minden bejegyzés kapcsolódik egy **courier_id** (futár), valamint egy **order_id** (rendelés) azonosítóhoz, és tárolja a futár által elfogadott rendelés állapotát (pl. „rendelés átvétele”, „kézbesítés alatt”, stb.).
+
+![courier_orders.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20courier_orders.png)
+
+### 8. roles tábla
+
+Ez a tábla tárolja a felhasználók szerepköreit, mint például „user” (felhasználó), „courier” (futár), és „admin” (adminisztrátor). 
+A szerepkörök segítenek meghatározni, hogy a felhasználó milyen jogosultságokkal rendelkezik a rendszerben. 
+A **users** tábla a **role_id** mezőn keresztül kapcsolódik a **roles** táblához, így minden felhasználóhoz hozzárendelhető egy szerepkör.
+
+![roles.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20roles.png)
+
+### Áttekintés:
+
+![hudora.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20hudora.png)
+
+- A **users** táblában lévő felhasználók kosárban lévő ételeit a **user_cart** tábla kezeli.
+- Az éttermekhez tartozó ételek a **foods** táblában szerepelnek, és mindegyik étteremhez kapcsolódik a **restaurants** tábla.
+- A felhasználók rendeléseit az **orders** táblában rögzítjük, míg a futárok által teljesített rendelések a **courier_orders** táblában találhatóak.
+
+Ezek a táblák biztosítják az alapvető adatstruktúrát ahhoz, hogy egy ételrendelő platform működjön, és a rendszer hatékonyan kezelje a felhasználói kosarakat, rendeléseket és a futárokat.
 
 ## 9. Implementációs terv
 
