@@ -1,6 +1,6 @@
 # ShadowWeb
 
-Egy egyszerűbben használható és átláthatóbb, fooddora-hoz hasonló ételrendelős weboldalt csinálunk.  
+Egy egyszerűbben használható és átláthatóbb, hudora ételrendelős weboldalt csinálunk.  
 Alábbi keretrendszert használtuk:
 
 + Laravel

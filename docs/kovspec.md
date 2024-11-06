@@ -59,35 +59,36 @@ A HuDora rendszer célja, hogy egyszerűsítse az ételrendelést mind a felhasz
 
 ### 5.1 Felhasználói folyamatok
 
-## 1. Regisztráció és Bejelentkezés:
+#### 1. Regisztráció és Bejelentkezés:
+
 Az új felhasználók gyorsan regisztrálhatnak a rendszerbe, amely során megadhatják személyes adataikat, elérhetőségeiket, és elmenthetik kedvenc éttermeiket. A regisztrált felhasználók bejelentkezhetnek, és hozzáférhetnek korábbi rendeléseikhez.
 
-## 2. Ételválaszték böngészése és rendelés:
+#### 2. Ételválaszték böngészése és rendelés:
 A felhasználók szűrhetik az ételkínálatot kategóriák, diétás igények, kalóriaérték vagy ár alapján. A választott ételeket egy virtuális kosárba helyezhetik, és leadhatják rendelésüket, amelyet kártyás fizetéssel rendezhetnek.
 
-## 3. Rendelés követése:
+#### 3. Rendelés követése:
 A rendelés leadása után a felhasználók valós idejű értesítéseket kapnak a rendelés állapotáról. A rendelés kézbesítése során nyomon követhetik a futárt és az érkezési időt.
 
-## 4. Értékelés és visszajelzés:
+#### 4. Értékelés és visszajelzés:
 A rendelés teljesítése után a felhasználók értékelhetik a szolgáltatást, amely segíti az éttermeket és futárokat a minőség javításában.
 
 ### 5.2 Adminisztrátori folyamatok
 
-## 1. Ételmenü kezelése:
+#### 1. Ételmenü kezelése:
 Az adminisztrátorok új ételeket adhatnak hozzá, frissíthetik az étlapot, kategóriákat hozhatnak létre, és kezelhetik az elérhetőséget az ételrendelési oldalon.
 
-## 2. Felhasználói és rendelési adatkezelés:
+#### 2. Felhasználói és rendelési adatkezelés:
 Az adminisztrátorok hozzáférhetnek a felhasználói fiókokhoz, kezelhetik a rendeléseket, követhetik az aktuális rendelési státuszokat, és szükség esetén támogatást nyújthatnak a felhasználóknak.
 
-## 3. Futárok koordinálása:
+#### 3. Futárok koordinálása:
 Az adminisztrátorok nyomon követhetik a futárok rendeléskiszállítási állapotát és hozzárendelhetik őket a beérkező rendelésekhez, segítve ezzel a hatékony szállítást.
 
 ### 5.3 Futár folyamatok
 
-## 1. Rendelések fogadása:
+#### 1. Rendelések fogadása:
  A futárok a rendszerben kapnak értesítést a rájuk kiosztott rendelésekről, amelyeket egyszerűen áttekinthetnek és igazolhatnak.
 
-## 2. Kiszállítás optimalizálása: 
+#### 2. Kiszállítás optimalizálása: 
 A futárok kiválaszthatják az optimális útvonalat a címekhez, és visszajelzést adhatnak a szállítási tapasztalataikról, hogy az adminisztrátorok javítani tudják a kiszállítási folyamatokat.
 
 ## 6. Követelménylista
@@ -101,8 +102,6 @@ A futárok kiválaszthatják az optimális útvonalat a címekhez, és visszajel
 | 5      |  Rendeléskövetési funkció     | Magas |
 | 6      |  Admin felület az étlap és rendelések kezelésére     | Magas |
 | 7      |  Adatbiztonság és adatvédelem biztosítása     | Magas |
-
-
 
 ## 7. Fogalomtár
 
