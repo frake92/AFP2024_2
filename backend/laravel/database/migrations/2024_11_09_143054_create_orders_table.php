@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('cart_id');
             $table->enum('status', ['pending', 'completed', 'canceled']);
             $table->timestamp('order_date')->useCurrent();
+            $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('cart_id')->references('id')->on('user_carts')->onDelete('cascade');
         });

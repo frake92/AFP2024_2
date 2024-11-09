@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('city', 100);
             $table->string('street', 100);
             $table->string('house_number', 10);
+            $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

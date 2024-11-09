@@ -9,6 +9,8 @@ class Role extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = ['name'];
 
     // Egy szerepkörhöz több felhasználó is tartozhat

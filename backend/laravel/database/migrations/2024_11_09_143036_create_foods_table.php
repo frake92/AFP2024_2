@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name', 255);
             $table->decimal('price', 10, 2);
             $table->string('picture_path', 255)->nullable();
+            $table->timestamps();
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
         });
     }
