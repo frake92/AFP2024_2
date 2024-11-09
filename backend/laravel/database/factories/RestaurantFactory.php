@@ -12,10 +12,10 @@ class RestaurantFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->company,
-            'address' => $this->faker->address,
-            'phone' => $this->faker->phoneNumber,
-            'description' => $this->faker->text(200),
+            'name' => fake()->company(),
+            'address' => fake()->address(),
+            'phone' => fake()->phoneNumber(),
+            'description' => fake()->paragraph()
         ];
     }
 }

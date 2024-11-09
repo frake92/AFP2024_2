@@ -12,11 +12,11 @@ class UserAddressFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => \App\Models\User::factory(), // Létrehoz egy új felhasználót, és azt rendeli hozzá
-            'postal_code' => $this->faker->postcode,
-            'city' => $this->faker->city,
-            'street' => $this->faker->streetName,
-            'house_number' => $this->faker->buildingNumber,
+            'user_id' => User::factory(),
+            'postal_code' => fake()->postcode(),
+            'city' => fake()->city(),
+            'street' => fake()->streetName(),
+            'house_number' => fake()->buildingNumber()
         ];
     }
 }

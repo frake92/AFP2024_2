@@ -13,6 +13,7 @@ class Food extends Model
         'restaurant_id',
         'name',
         'price',
+        'picture_path'
     ];
 
     // Egy étel egy étteremhez tartozik

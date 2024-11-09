@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('address', 255);
             $table->string('phone', 15);
             $table->text('description')->nullable();
+            $table->string('picture_path', 255)->nullable();
         });
     }
 
