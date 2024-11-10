@@ -16,8 +16,9 @@ class OrderFactory extends Factory
         return [
             'user_id' => User::factory(),
             'cart_id' => UserCart::factory(),
-            'status' => fake()->randomElement(['pending', 'completed', 'canceled']),
-            'order_date' => fake()->dateTimeBetween('-1 month', 'now')
+            'status' => fake()->randomElement(['pending', 'in_progress','completed', 'canceled']),
+            'order_date' => fake()->dateTimeBetween('-1 month', 'now'),
+            'comment' => fake()->paragraph()
         ];
     }
 

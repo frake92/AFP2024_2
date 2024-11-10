@@ -14,6 +14,7 @@ class Order extends Model
         'cart_id',
         'status',
         'order_date',
+        'comment',
     ];
 
     // Egy rendelés egy felhasználóhoz tartozik
