@@ -18,16 +18,16 @@ class User extends Model
         'role_id',
     ];
 
-    // Egy felhasználónak egy szerepe van
+    // Egy felhasználónak egy szerepköre lehet
     public function role()
     {
         return $this->belongsTo(Role::class);
     }
 
-    // Egy felhasználónak több címe lehet
+    // Egy felhasználónak egy címe lehet
     public function addresses()
     {
-        return $this->hasMany(UserAddress::class);
+        return $this->belongsTo(UserAddress::class);
     }
 
     // Egy felhasználónak több kosara lehet

@@ -20,9 +20,9 @@ class UserCart extends Model
         return $this->belongsTo(User::class);
     }
 
-    // Egy kosár egy ételt tartalmaz
+    // Egy kosár több ételt is tartalmazhat
     public function food()
     {
-        return $this->belongsTo(Food::class);
+        return $this->hasMany(Food::class);
     }
 }

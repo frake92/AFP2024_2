@@ -29,9 +29,9 @@ class Order extends Model
         return $this->belongsTo(UserCart::class);
     }
 
-    // Egy rendelést több futár is felvehet
+    // Egy rendelést egy futár vehet fel
     public function courierOrders()
     {
-        return $this->hasMany(CourierOrder::class);
+        return $this->belongsTo(CourierOrder::class);
     }
 }

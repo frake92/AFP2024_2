@@ -14,13 +14,13 @@ class CourierOrder extends Model
         'courier_id',
     ];
 
-    // Egy futár rendelés egy rendeléshez tartozik
+    // Egy futár által felvett rendelés egy rendeléshez tartozik
     public function order()
     {
         return $this->belongsTo(Order::class);
     }
 
-    // Egy futár rendelés egy futárhoz (felhasználóhoz) tartozik
+    // Egy futár által felvett rendelés egy futárhoz tartozik
     public function courier()
     {
         return $this->belongsTo(User::class, 'courier_id');
