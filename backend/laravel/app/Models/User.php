@@ -2,47 +2,49 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Model
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
-        'name',
         'email',
         'password',
+        'first_name',
+        'last_name',
+        'phone',
+        'role_id',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
+    // Egy felhasználónak egy szerepköre lehet
+    public function role()
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return $this->belongsTo(Role::class);
+    }
+
+    // Egy felhasználónak egy címe lehet
+    public function addresses()
+    {
+        return $this->belongsTo(UserAddress::class);
+    }
+
+    // Egy felhasználónak több kosara lehet
+    public function carts()
+    {
+        return $this->hasMany(UserCart::class);
+    }
+
+    // Egy felhasználónak több rendelése lehet
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    // Egy felhasználó lehet futár több rendelésnél
+    public function courierOrders()
+    {
+        return $this->hasMany(CourierOrder::class, 'courier_id');
     }
 }
