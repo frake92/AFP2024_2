@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/Navbar-Right-Links-icons.css') }}">
 </head>
 
-<body style="background: url('{{ asset('assets/img/kezdolapképe.jpg') }}') center / cover no-repeat;">
+<body style="background: url('{{ asset('/assets/img/kezdolapképe.jpg') }}') center / cover no-repeat;">
     <header>
         @include('public.main_header')
     </header>
@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-md bg-body py-3">
         @include('public.main_menu')
     </nav>
-    @yield('dynamic_content') 
+    @yield('dynamic_content')
     <footer>
         @include('public.main_footer')
     </footer>
