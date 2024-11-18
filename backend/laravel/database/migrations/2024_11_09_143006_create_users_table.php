@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('password', 255);
             $table->string('first_name', 100);
             $table->string('last_name', 100);
-            $table->string('phone', 15)->nullable();
+            $table->string('phone', 25)->nullable();
             $table->unsignedBigInteger('role_id');
             $table->timestamps();
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
