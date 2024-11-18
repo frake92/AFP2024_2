@@ -15,7 +15,8 @@ class FoodFactory extends Factory
         return [
             'restaurant_id' => Restaurant::factory(),
             'name' => fake()->word(),
-            'price' => fake()->randomFloat(2, 5, 50)
+            'price' => fake()->randomFloat(2, 5, 50),
+            'picture_path' => 'images/foods/' . fake()->uuid() . '.jpg'
         ];
     }
 }
