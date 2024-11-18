@@ -15,7 +15,8 @@ class RestaurantFactory extends Factory
             'name' => fake()->company(),
             'address' => fake()->address(),
             'phone' => fake()->phoneNumber(),
-            'description' => fake()->paragraph()
+            'description' => fake()->paragraph(),
+            'picture_path' => 'images/restaurants/' . fake()->uuid() . '.jpg'
         ];
     }
 }
