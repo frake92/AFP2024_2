@@ -62,8 +62,10 @@ class DatabaseSeeder extends Seeder
         $orders = Order::factory()->count(5)->create();
 
         // 8. Generáljunk 2 futárhoz 1-2 courierOrder-t
+        /*
         foreach ($couriers->random(2) as $courier) {
             CourierOrder::factory()->count(rand(1, 2))->create(['courier_id' => $courier->id]);
         }
+        */
     }
 }

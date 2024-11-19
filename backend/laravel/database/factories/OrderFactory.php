@@ -3,8 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Order;
-use App\Models\User;
-use App\Models\UserCart;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class OrderFactory extends Factory
@@ -14,8 +12,6 @@ class OrderFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::factory(),
-            'cart_id' => UserCart::factory(),
             'status' => fake()->randomElement(['pending', 'in_progress','completed', 'canceled']),
             'order_date' => fake()->dateTimeBetween('-1 month', 'now'),
             'comment' => fake()->paragraph()
