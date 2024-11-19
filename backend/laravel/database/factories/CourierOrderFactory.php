@@ -14,8 +14,6 @@ class CourierOrderFactory extends Factory
     public function definition()
     {
         return [
-            'order_id' => Order::factory(),
-            'courier_id' => User::factory()->courier()
         ];
     }
 }
