@@ -12,7 +12,6 @@ class UserAddressFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::factory(),
             'postal_code' => fake()->postcode(),
             'city' => fake()->city(),
             'street' => fake()->streetName(),
