@@ -12,6 +12,7 @@ class Order extends Model
     protected $fillable = [
         'user_id',
         'cart_id',
+        'address_id',
         'status',
         'order_date',
         'comment',
@@ -26,12 +27,18 @@ class Order extends Model
     // Egy rendelés egy kosárhoz tartozik
     public function cart()
     {
-        return $this->belongsTo(UserCart::class);
+        return $this->belongsTo(Cart::class);
+    }
+
+    // Egy rendelés egy címhez tartozik
+    public function address()
+    {
+        return $this->belongsTo(UserAddress::class, 'address_id');
     }
 
     // Egy rendelést egy futár vehet fel
     public function courierOrders()
     {
-        return $this->belongsTo(CourierOrder::class);
+        return $this->hasOne(CourierOrder::class);
     }
 }

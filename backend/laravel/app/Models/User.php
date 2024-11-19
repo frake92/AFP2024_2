@@ -16,6 +16,7 @@ class User extends Model
         'last_name',
         'phone',
         'role_id',
+        'cart_id',
     ];
 
     // Egy felhasználónak egy szerepköre lehet
@@ -27,13 +28,13 @@ class User extends Model
     // Egy felhasználónak egy címe lehet
     public function addresses()
     {
-        return $this->belongsTo(UserAddress::class);
+        return $this->hasMany(UserAddress::class);
     }
 
     // Egy felhasználónak több kosara lehet
-    public function carts()
+    public function cart()
     {
-        return $this->hasMany(UserCart::class);
+        return $this->hasOne(Cart::class);
     }
 
     // Egy felhasználónak több rendelése lehet

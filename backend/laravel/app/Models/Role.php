@@ -11,7 +11,9 @@ class Role extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'name'
+    ];
 
     // Egy szerepkörhöz több felhasználó is tartozhat
     public function users()
