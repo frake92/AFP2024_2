@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('email', 255)->unique();
             $table->string('password', 255);
-            $table->string('first_name', 100);
-            $table->string('last_name', 100);
+            $table->string('first_name', 100)->nullable();
+            $table->string('last_name', 100)->nullable();
             $table->string('phone', 50)->nullable();
-            $table->unsignedBigInteger('role_id');
+            $table->unsignedBigInteger('role_id')->nullable();
             $table->timestamps();
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
         });
