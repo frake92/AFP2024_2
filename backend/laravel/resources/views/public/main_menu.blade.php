@@ -16,9 +16,15 @@
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="/">Főoldal</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/dashboard">Profil módosítás</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/login">Profil módosítás</a></li>
                 </ul>
-                <a class="btn btn-primary ms-md-2" role="button" href="#">Kijelentkezés</a>
+                <form method="POST" action="{{ route('logout') }}" style="display: none;" id="logout-form">
+                    @csrf
+                </form>
+
+                <a href="#" style = "text-decoration:none; color:black" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Kijelentkezés
+                </a>
             </div>
         </div>
 
