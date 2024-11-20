@@ -12,6 +12,11 @@ Route::get('/loggedin', function () {
     return view('welcome');
 })->middleware(['auth', 'verified'])->name('loggedin');
 
+Route::get('/futar', function () {
+    return view('futar');
+})->middleware(['auth', 'verified'])->name('futar');
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

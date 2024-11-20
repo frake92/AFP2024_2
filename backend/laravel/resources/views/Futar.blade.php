@@ -26,11 +26,16 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#">Futár</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Főoldal</a></li>
+                <ul class="navbar-nav me-auto">                    
+                    <li class="nav-item"><a class="nav-link" href="loggedin">Főoldal</a></li>
                 </ul>
-                <button class="btn btn-primary" type="button">Kijelentkezés</button>
+                <form method="POST" action="{{ route('logout') }}" style="display: none;" id="logout-form">
+                    @csrf
+                </form>
+
+                <a href="#" style = "text-decoration:none; color:black" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Kijelentkezés
+                </a>
             </div>
         </div>
     </nav>
