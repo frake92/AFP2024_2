@@ -10,11 +10,10 @@ use Illuminate\Database\Eloquent\Model;
 
 
 
-class User extends Model
+class User extends Authenticatable
 {
     use HasFactory;
-
-    protected $table = 'users';
+    use Notifiable;
 
     protected $fillable = [
         'email',
@@ -23,7 +22,6 @@ class User extends Model
         'last_name',
         'phone',
         'role_id',
-        'cart_id',
     ];
 
     // Egy felhasználónak egy szerepköre lehet
@@ -35,13 +33,13 @@ class User extends Model
     // Egy felhasználónak egy címe lehet
     public function addresses()
     {
-        return $this->hasMany(UserAddress::class);
+        return $this->belongsTo(UserAddress::class);
     }
 
     // Egy felhasználónak több kosara lehet
-    public function cart()
+    public function carts()
     {
-        return $this->hasOne(Cart::class);
+        return $this->hasMany(UserCart::class);
     }
 
     // Egy felhasználónak több rendelése lehet

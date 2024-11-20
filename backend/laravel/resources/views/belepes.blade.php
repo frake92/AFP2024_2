@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Regisztráció</h1>
+        <h1>Bejelentkezés</h1>
         <form method="POST" action="{{ route('user.belepes') }}">
             @csrf
             <div class="input-group">
