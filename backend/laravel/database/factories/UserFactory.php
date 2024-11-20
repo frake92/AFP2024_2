@@ -19,7 +19,7 @@ class UserFactory extends Factory
             'last_name' => fake()->lastName(),
             'phone' => fake()->phoneNumber(),
             'role_id' => fake()->numberBetween(1, 3),
-            'created_at' => now()
+            'cart_id' => null
         ];
     }
 

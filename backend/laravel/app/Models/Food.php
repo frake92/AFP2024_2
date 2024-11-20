@@ -10,11 +10,12 @@ class Food extends Model
     use HasFactory;
 
     protected $table = 'foods';
+
     protected $fillable = [
         'restaurant_id',
         'name',
         'price',
-        'picture_path'
+        'picture_path',
     ];
 
     // Egy étel egy étteremhez tartozik
@@ -24,8 +25,8 @@ class Food extends Model
     }
 
     // Egy étel több kosárban is szerepelhet
-    public function carts()
+    public function cartItems()
     {
-        return $this->hasMany(UserCart::class);
+        return $this->hasMany(CartItem::class);
     }
 }

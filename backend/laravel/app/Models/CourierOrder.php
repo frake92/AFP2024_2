@@ -9,6 +9,8 @@ class CourierOrder extends Model
 {
     use HasFactory;
 
+    protected $table = 'courier_orders';
+
     protected $fillable = [
         'order_id',
         'courier_id',

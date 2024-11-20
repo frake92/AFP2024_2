@@ -9,12 +9,14 @@ class Restaurant extends Model
 {
     use HasFactory;
 
+    protected $table = 'restaurants';
+
     protected $fillable = [
         'name',
         'address',
         'phone',
         'description',
-        'picture_path'
+        'picture_path',
     ];
 
     // Egy étteremhez több étel is tartozhat

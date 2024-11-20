@@ -15,12 +15,14 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('cart_id');
-            $table->enum('status', ['pending', 'in_progress','completed', 'canceled']);
+            $table->unsignedBigInteger('address_id')->nullable();
+            $table->enum('status', ['pending', 'in_progress', 'completed', 'canceled']);
             $table->timestamp('order_date')->useCurrent();
             $table->text('comment')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('cart_id')->references('id')->on('user_carts')->onDelete('cascade');
+            $table->foreign('cart_id')->references('id')->on('carts')->onDelete('cascade');
+            $table->foreign('address_id')->references('id')->on('user_addresses')->onDelete('set null');
         });
     }
 

@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserCart extends Model
+class Cart extends Model
 {
     use HasFactory;
 
+    protected $table = 'carts';
+
     protected $fillable = [
-        'user_id',
-        'food_id',
+        'user_id'
     ];
 
     // Egy kosár egy felhasználóhoz tartozik
@@ -20,9 +21,9 @@ class UserCart extends Model
         return $this->belongsTo(User::class);
     }
 
-    // Egy kosár több ételt is tartalmazhat
-    public function food()
+    // Egy kosárba több étel is szerepelhet
+    public function cartItems()
     {
-        return $this->hasMany(Food::class);
+        return $this->hasMany(CartItem::class);
     }
 }
