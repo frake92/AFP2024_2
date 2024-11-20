@@ -13,8 +13,8 @@
         <ul class="navbar-nav ms-auto">
             @guest
                 <!-- Ha a felhasználó nincs bejelentkezve -->
-                <li class="nav-item"><a class="nav-link active" href="/login">Bejelentkezés</a></li>
-                <li class="nav-item"><a class="nav-link" href="/register">Regisztráció</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/belepes">Bejelentkezés</a></li>
+                <li class="nav-item"><a class="nav-link" href="/regisztracio">Regisztráció</a></li>
                 
             @endguest
 

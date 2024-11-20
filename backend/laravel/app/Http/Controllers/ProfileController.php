@@ -8,9 +8,35 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
+
+    public function regisztralas(Request $request): RedirectResponse
+    {
+        $data = $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8|confirmed',
+            'phone' => 'required'
+        ]);
+    
+        $data['password'] = bcrypt($data['password']);
+    
+        $newUser = User::create([
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'email' => $data['email'],
+            'password' => $data['password'],
+            'phone' => $data['phone']
+        ]);
+    
+        return redirect(route('belepes'));
+    }
+    
+
     /**
      * Display the user's profile form.
      */
