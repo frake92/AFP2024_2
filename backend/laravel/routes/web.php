@@ -18,6 +18,8 @@ Route::post('/regisztralas', [ProfileController::class, 'regisztralas'])->name('
 Route::get('/belepes', function () {
     return view('belepes');
 })->name('belepes');
+Route::post('/belepes', [ProfileController::class, 'belepes'])->name('user.belepes');
+Route::post('/logout', [ProfileController::class, 'kijelentkezes'])->name('kijelentkezes');
 
 Route::get('/loggedin', function () {
     return view('welcome');

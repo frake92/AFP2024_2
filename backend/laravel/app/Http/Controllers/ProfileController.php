@@ -35,11 +35,25 @@ class ProfileController extends Controller
     
         return redirect(route('belepes'));
     }
-    
 
-    /**
-     * Display the user's profile form.
-     */
+
+    public function belepes(Request $request): RedirectResponse
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:8',
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate(); 
+            return redirect()->intended('/profile');
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->onlyInput('email');
+    }
+
     public function edit(Request $request): View
     {
         return view('profile.edit', [
