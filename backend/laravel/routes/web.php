@@ -8,6 +8,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/regisztracio', function () {
+    return view('regisztracio');
+});
+
+Route::post('/regisztralas', [ProfileController::class, 'register'])->name('user.register');
+
+Route::get('/belepes', function () {
+    return view('belepes');
+});
+
 Route::get('/loggedin', function () {
     return view('welcome');
 })->middleware(['auth', 'verified'])->name('loggedin');

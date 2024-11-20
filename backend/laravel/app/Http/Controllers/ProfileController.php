@@ -8,9 +8,24 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
+
+    public function register(Request $request): View
+    {
+        $date = $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'phone' => 'required'
+        ]);
+        $newUser = User::create($data);
+        return redirect(route('welcome'));
+    }
+
     /**
      * Display the user's profile form.
      */
