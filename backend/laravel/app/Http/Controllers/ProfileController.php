@@ -13,18 +13,29 @@ use App\Models\User;
 class ProfileController extends Controller
 {
 
-    public function register(Request $request): View
+    public function regisztralas(Request $request): RedirectResponse
     {
-        $date = $request->validate([
+        $data = $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8|confirmed',
             'phone' => 'required'
         ]);
-        $newUser = User::create($data);
-        return redirect(route('welcome'));
+    
+        $data['password'] = bcrypt($data['password']);
+    
+        $newUser = User::create([
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'email' => $data['email'],
+            'password' => $data['password'],
+            'phone' => $data['phone']
+        ]);
+    
+        return redirect(route('belepes'));
     }
+    
 
     /**
      * Display the user's profile form.
