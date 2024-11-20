@@ -74,7 +74,7 @@
             </div>
         </div>
     </section>
-    <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assetsFutar/bootstrap/js/bootstrap.min.js') }}"></script>
 </body>
 
 </html>
