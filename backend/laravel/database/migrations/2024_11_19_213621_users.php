@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('password', 255);
             $table->string('first_name', 100);
             $table->string('last_name', 100);
-            $table->string('phone', 50);
+            $table->string('phone', 50)->nullable();
             $table->unsignedBigInteger('role_id')->default(3);
             $table->unsignedBigInteger('cart_id')->nullable();
             $table->timestamps();
