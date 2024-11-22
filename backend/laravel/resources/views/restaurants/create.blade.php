@@ -11,6 +11,7 @@
             window.location.href = "{{ route('welcome') }}";
         </script>
     @endif
+    <a href="{{route('restaurant.index')}}">Vissza az éttermekhez</a>
     <h1>Étterem létrehozása</h1>
     <div>
         @if($errors->any())
