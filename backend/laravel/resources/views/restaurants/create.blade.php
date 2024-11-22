@@ -15,11 +15,7 @@
     <h1>Étterem létrehozása</h1>
     <div>
         @if($errors->any())
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>{{$error}}</li>
-            @endforeach
-        </ul>
+            <p>{{"Hiba történt! Lehet, hogy ilyen étterem már létezik!"}}</p>
         @endif
     </div>
 
