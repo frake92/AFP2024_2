@@ -20,7 +20,7 @@
 
             @auth
                 <!-- Ha a felhasználó be van jelentkezve -->
-                <li class="nav-item"><a class="nav-link" href="/profile">Profil módosítás</a></li>
+                <li class="nav-item"><a class="nav-link" href="/profil">Profil módosítás</a></li>
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Kijelentkezés</a>
                 </li>                

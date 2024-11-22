@@ -6,7 +6,7 @@ use App\Http\Controllers\RestaurantController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 
 Route::get('/regisztracio', function () {
@@ -21,6 +21,9 @@ Route::get('/belepes', function () {
 Route::post('/belepes', [ProfileController::class, 'belepes'])->name('user.belepes');
 Route::post('/logout', [ProfileController::class, 'kijelentkezes'])->name('kijelentkezes');
 
+Route::put('/profil', [UserController::class, 'update'])->name('user.profile.update');
+
+
 Route::get('/loggedin', function () {
     return view('welcome');
 })->middleware(['auth', 'verified'])->name('loggedin');
@@ -28,6 +31,10 @@ Route::get('/loggedin', function () {
 Route::get('/futar', function () {
     return view('futar');
 })->middleware(['auth', 'verified'])->name('futar');
+
+Route::get('/WelcomeAdmin', function () {
+    return view('WelcomeAdmin');
+})->middleware(['auth', 'verified'])->name('WelcomeAdmin');
 
 
 

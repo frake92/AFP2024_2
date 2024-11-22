@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
+    @if (Auth::check() && Auth::user()->role_id != 3)
+        <script>
+            window.location.href = "{{ route('welcome') }}";
+        </script>
+    @endif
     <h1>Étterem létrehozása</h1>
     <div>
         @if($errors->any())

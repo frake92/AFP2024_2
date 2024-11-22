@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -16,21 +17,22 @@ class ProfileController extends Controller
     public function regisztralas(Request $request): RedirectResponse
     {
         $data = $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
+            'first_name' => 'required|min:3',
+            'last_name' => 'required|min:3',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8|confirmed',
-            'phone' => 'required'
+            'phone' => 'required|unique:users,phone'
         ]);
     
         $data['password'] = bcrypt($data['password']);
-    
+        $defaultRoleId = 1;
         $newUser = User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => $data['password'],
-            'phone' => $data['phone']
+            'phone' => $data['phone'],
+            'role_id' => $defaultRoleId
         ]);
     
         return redirect(route('belepes'));
@@ -46,12 +48,37 @@ class ProfileController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate(); 
-            return redirect()->intended('/profile');
+            return redirect()->intended('');
         }
 
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
+    }
+    public function update(Request $request)
+    {
+        $user = auth()->user();
+
+        $data = $request->validate([
+            'first_name' => 'required|string|min:3',
+            'last_name' => 'required|string|min:3',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'phone' => 'required|unique:users,phone,' . $user->id,
+            'password' => 'nullable|confirmed|min:8',
+        ]);
+
+        $user->first_name = $data['first_name'];
+        $user->last_name = $data['last_name'];
+        $user->email = $data['email'];
+        $user->phone = $data['phone'];
+
+        if (!empty($data['password'])) {
+            $user->password = Hash::make($data['password']);
+        }
+
+        $user->save();
+
+        return redirect()->back()->with('success', 'Profil sikeresen frissítve!');
     }
 
     public function edit(Request $request): View
@@ -61,25 +88,7 @@ class ProfileController extends Controller
         ]);
     }
 
-    /**
-     * Update the user's profile information.
-     */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
-    {
-        $request->user()->fill($request->validated());
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
-
-        $request->user()->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
-    }
-
-    /**
-     * Delete the user's account.
-     */
     public function destroy(Request $request): RedirectResponse
     {
         $request->validateWithBag('userDeletion', [
