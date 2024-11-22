@@ -55,6 +55,11 @@ class ProfileController extends Controller
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
     }
+
+    public function edit(User $user) {
+        return view('profil', ['user' => $user]);
+    }
+
     public function update(Request $request)
     {
         $user = auth()->user();
@@ -72,20 +77,15 @@ class ProfileController extends Controller
         $user->email = $data['email'];
         $user->phone = $data['phone'];
 
-        if (!empty($data['password'])) {
-            $user->password = Hash::make($data['password']);
+        if (!$request->filled('password')) {
+            unset($data['password']);
+        } else {          
+            $data['password'] = bcrypt($data['password']);
         }
 
-        $user->save();
+        $user->update($data);
 
         return redirect()->back()->with('success', 'Profil sikeresen frissítve!');
-    }
-
-    public function edit(Request $request): View
-    {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
     }
 
 

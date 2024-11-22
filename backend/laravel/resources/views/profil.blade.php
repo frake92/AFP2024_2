@@ -7,6 +7,7 @@
 </head>
 <body>
     <div class="container">
+        <a href="{{route('welcome')}}">Főoldal</a>
         <h1>Profil Szerkesztése</h1>
 
         @if (session('success'))
@@ -25,33 +26,30 @@
             </div>
         @endif
 
-        <form method="PUT" action="{{ route('user.profile.update') }}">
+
+        <form method="POST" action="{{route('profil.update', ['user' => $user])}}">
             @csrf
             @method('PUT')
 
             <div class="input-group">
                 <input type="text" name="first_name" id="first_name" 
-                       value="{{ old('first_name', $user->first_name) }}" 
-                       placeholder="Keresztnév" required>
+                       value="{{$user->first_name}}" required>
             </div>
 
             <div class="input-group">
                 <input type="text" name="last_name" id="last_name" 
-                       value="{{ old('last_name', $user->last_name) }}" 
-                       placeholder="Vezetéknév" required>
+                       value="{{ old('last_name', $user->last_name) }}" required>
             </div>
 
             <div class="input-group">
                 <input type="email" name="email" id="email" 
-                       value="{{ old('email', $user->email) }}" 
-                       placeholder="E-mail cím" required>
+                       value="{{ old('email', $user->email) }}" required>
             </div>
 
             <div class="input-group">
                 <input type="tel" id="phone" name="phone" 
                        value="{{ old('phone', $user->phone) }}" 
-                       pattern="[0-9]{2}[0-9]{2}[0-9]{3}[0-9]{4}" 
-                       placeholder="Telefonszám" required>
+                       pattern="[0-9]{2}[0-9]{2}[0-9]{3}[0-9]{4}" required>
             </div>
 
             <div class="input-group">

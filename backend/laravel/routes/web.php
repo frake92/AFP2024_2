@@ -18,11 +18,12 @@ Route::post('/regisztralas', [ProfileController::class, 'regisztralas'])->name('
 Route::get('/belepes', function () {
     return view('belepes');
 })->name('belepes');
+
 Route::post('/belepes', [ProfileController::class, 'belepes'])->name('user.belepes');
 Route::post('/logout', [ProfileController::class, 'kijelentkezes'])->name('kijelentkezes');
 
-Route::put('/profil', [UserController::class, 'update'])->name('user.profile.update');
-
+Route::get('/profil/{user}/edit', [ProfileController::class, 'edit'])->name('profil.edit');
+Route::put('/profil/update', [ProfileController::class, 'update'])->name('profil.update');
 
 Route::get('/loggedin', function () {
     return view('welcome');
