@@ -8,6 +8,16 @@
 <body>
     <div class="container">
         <h1>Regisztráció</h1>
+        @if ($errors->has('email'))
+                <div class="alert alert-danger">
+                    {{ 'Ez az e-mail cím már használatban van!' }}
+                </div>
+        @endif
+        @if ($errors->has('phone'))
+                <div class="alert alert-danger">
+                    {{ 'Ez a telefonszám már használatban van!' }}
+                </div>
+        @endif
         <form method="POST" action="{{ route('user.regisztralas') }}">
             @csrf
             <div class="input-group">

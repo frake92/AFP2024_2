@@ -18,14 +18,16 @@ class RestaurantController extends Controller
 
     public function store(Request $request) {
         $data = $request->validate([
-            'name' => 'required',
-            'address' => 'required',
-            'phone' => 'required'
+            'name'          => 'required|string|max:255',
+            'address'       => 'required|string|max:255|unique:restaurants,address',
+            'phone'         => 'required|string|max:20|unique:restaurants,phone',
+            'description'   => 'nullable|string|max:500',
+            'picture_path'  => 'nullable|string|max:255',
         ]);
 
         $newRestaurant = Restaurant::create($data);
 
-        return redirect(route('restaurant.index'));
+        return redirect(route('restaurant.index'))->with('success', 'Étterem létrehozva!');
     }
 
     public function edit(Restaurant $restaurant) {

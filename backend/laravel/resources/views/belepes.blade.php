@@ -7,6 +7,11 @@
 </head>
 <body>
     <div class="container">
+        @if ($errors->any())
+                <div class="alert alert-danger">
+                    {{ 'Hibás e-mail cím vagy jelszó!' }}
+                </div>
+        @endif
         <h1>Bejelentkezés</h1>
         <form method="POST" action="{{ route('user.belepes') }}">
             @csrf

@@ -10,6 +10,11 @@
 </head>
 
 <body>
+    @if (Auth::check() && Auth::user()->role_id != 2)
+        <script>
+            window.location.href = "{{ route('welcome') }}";
+        </script>
+    @endif
     <nav class="navbar navbar-expand-md bg-body py-3">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">

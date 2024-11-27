@@ -6,14 +6,16 @@
     <title>Document</title>
 </head>
 <body>
+    @if (Auth::check() && Auth::user()->role_id != 3)
+        <script>
+            window.location.href = "{{ route('welcome') }}";
+        </script>
+    @endif
+    <a href="{{route('restaurant.index')}}">Vissza az éttermekhez</a>
     <h1>Étterem létrehozása</h1>
     <div>
         @if($errors->any())
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>{{$error}}</li>
-            @endforeach
-        </ul>
+            <p>{{"Hiba történt! Lehet, hogy ilyen étterem már létezik!"}}</p>
         @endif
     </div>
 
