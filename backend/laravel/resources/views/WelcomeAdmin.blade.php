@@ -29,9 +29,17 @@
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="#">Főoldal</a></li>
-                </ul>
-                <button class="btn btn-primary" type="button">Admin</button>
-                <a class="btn btn-primary ms-md-2" role="button" href="#">Bejelentkezés</a>
+                </ul>                
+                <a href="{{ route('restaurant.create') }}" class="btn btn-success ms-md-2">Új étterem hozzáadása</a>
+                <a href="{{ route('food.create') }}" class="btn btn-primary">Étel hozzáadása</a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="btn btn-primary">Kijelentkezés</button>
+                </form>
+                <!-- Az étterem nevére kattintva a hozzá tartozó ételek listáját nézhetjük meg -->
+                
+
+
             </div>
         </div>
     </nav>
@@ -42,20 +50,7 @@
             </div>
         </div>
         <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
-            @foreach ($restaurants as $restaurant)
-                <div class="col">
-                    <div class="card">
-                        <img class="card-img-top w-100 d-block fit-cover" style="height: 200px;" src="{{ $restaurant->image_url }}">
-                        <div class="card-body p-4">
-                            <h4 class="card-title">{{ $restaurant -> $name }}</h4>
-                            <p class="card-text">{{ $restaurant->description }}</p>
-                            <div class="d-flex">
-                                <div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
+            <!-- Itt jelenhetnek meg az éttermek -->
         </div>
     </div>
     <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>

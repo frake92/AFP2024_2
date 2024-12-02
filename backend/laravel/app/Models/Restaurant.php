@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Restaurant extends Model
 {
     use HasFactory;
-
+    
     protected $table = 'restaurants';
 
     protected $fillable = [
@@ -18,6 +18,7 @@ class Restaurant extends Model
         'description',
         'picture_path',
     ];
+
 
     // Egy étteremhez több étel is tartozhat
     public function foods()

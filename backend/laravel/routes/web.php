@@ -1,8 +1,12 @@
 <?php
 
+
+use App\Http\Controllers\FoodController;
+use App\Models\Restaurant;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestaurantController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -12,6 +16,9 @@ Route::get('/', function () {
 Route::get('/regisztracio', function () {
     return view('regisztracio');
 });
+
+
+
 
 Route::post('/regisztralas', [ProfileController::class, 'regisztralas'])->name('user.regisztralas');
 
@@ -55,5 +62,13 @@ Route::post('/restaurant', [RestaurantController::class, 'store'])->name('restau
 Route::get('/restaurant/{restaurant}/edit', [RestaurantController::class, 'edit'])->name('restaurant.edit');
 Route::put('/restaurant/{restaurant}/update', [RestaurantController::class, 'update'])->name('restaurant.update');
 Route::delete('/restaurant/{restaurant}/destroy', [RestaurantController::class, 'destroy'])->name('restaurant.destroy');
+Route::get('/add-food', [FoodController::class, 'create'])->name('food.create');
+Route::post('food', [FoodController::class, 'store'])->name('food.store');
+Route::get('restaurant/foods', [FoodController::class, 'index'])->name('food.index');
+Route::get('/', [RestaurantController::class, 'welcome'])->name('welcome');
+
+
+
+
 
 require __DIR__.'/auth.php';

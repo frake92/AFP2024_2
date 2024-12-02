@@ -11,6 +11,14 @@ class RestaurantController extends Controller
         $restaurants = Restaurant::all();
         return view('restaurants.index', ['restaurants' => $restaurants]);
     }
+    public function welcome()
+{
+    $restaurants = Restaurant::all(); // Minden étterem lekérése
+    return view('welcome', compact('restaurants')); // Adatok átadása a nézetnek
+}
+
+    
+    
 
     public function create() {
         return view('restaurants.create');
