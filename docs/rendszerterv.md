@@ -273,67 +273,91 @@ ezen keresztül tudják a felhasználók a rendszert használni.
 
 ### 1. users tábla
 
-Ez a tábla tárolja az összes felhasználó adatait, beleértve a felhasználónevüket, jelszavukat, email címüket, kereszt- és vezetéknevüket, telefonszámukat, valamint szerepkörüket (felhasználó, futár, admin). 
-Az **address_id** mező a **user_addresses** táblához kapcsolja a felhasználó címét.
+Ez a tábla tárolja a rendszer felhasználóinak alapvető adatait, beleértve az e-mail címet, a jelszót, a kereszt- és vezetéknevet, valamint a telefonszámot. 
+Minden felhasználónak van egy szerepköre, amely a **roles** táblához kapcsolódik a role_id mezőn keresztül. 
+Továbbá, minden felhasználóhoz tartozhat egy kosár, amely kapcsolatban áll a **carts** táblával a cart_id mezőn keresztül.
 
 ![users.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20users.png)
 
 ### 2. user_addresses tábla
 
-Ez a tábla tárolja a felhasználók címadatait, mint a cím, házszám, irányítószám, város és ország. 
-A címek kapcsolódnak a **users** táblához az **address_id** kulcson keresztül, így minden felhasználóhoz hozzárendelhető egy cím.
+Ez a tábla tárolja a felhasználók címadatait, mint például az irányítószám, a város, az utca és a házszám. 
+A címek a **users** táblához kapcsolódnak a user_id mezőn keresztül, így minden felhasználóhoz hozzárendelhető egy vagy több cím.
 
 ![user_addresses.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20user_addresses.png)
 
-### 3. restaurants tábla
+### 3. roles tábla
 
-Az éttermek adatait tárolja, mint például az étterem neve, címe, telefonszáma, nyitvatartási idő, stb. 
-Az éttermek információit a **foods** tábla használja, hogy az ételek az adott étteremhez rendelve legyenek.
+A rendszerben használható szerepkörök tárolására szolgál, például adminisztrátor, futár vagy általános felhasználó. 
+A **roles** tábla a **users** táblával áll kapcsolatban a role_id mező segítségével, amely meghatározza az adott felhasználó szerepkörét.
+
+![roles.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20roles.png)
+
+### 4. restaurants tábla
+
+Ez a tábla tárolja az éttermek adatait, beleértve az étterem nevét, címét, telefonszámát, leírását és képét. 
+Az éttermek kapcsolatban állnak a **foods** táblával, amely az adott étterem kínálatát tartalmazza.
 
 ![restaurants.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20restaurants.png)
 
-### 4. foods tábla
+### 5. foods tábla
 
-Ebben a táblában tárolódnak az éttermekben kapható ételek adatai, beleértve az étel nevét, leírását, árát és a hozzá tartozó étterem azonosítóját. 
-Az éttermek az **restaurants** tábla segítségével vannak összekapcsolva.
+Ez a tábla az egyes éttermek kínálatában szereplő ételek adatait tárolja. 
+Tartalmazza az étel nevét, árát és képét, valamint egy kapcsolatot az adott étteremmel a restaurant_id mezőn keresztül, amely a **restaurants** táblára hivatkozik.
 
 ![foods.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20foods.png)
 
-### 5. user_carts tábla
+### 6. carts tábla
 
-Ez a tábla tárolja a felhasználó kosarában lévő ételeket. 
-Minden bejegyzés a felhasználó **user_id**-ját, az étel **food_id**-ját. 
-A kosár tartalma rendelés leadásakor törölhető, és a tábla összekapcsolódik a **users** és **foods** táblákkal.
+A felhasználók kosarainak azonosítására szolgál. 
+Egy kosár mindig egy adott felhasználóhoz kapcsolódik, amit a user_id mező biztosít. 
+A kosarak tartalmát a **cart_items** tábla tárolja, amely a kosárhoz tartozó ételeket írja le.
 
-![user_carts.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20user_carts.png)
+![carts.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20carts.png)
 
-### 6. orders tábla
+### 7. cart_items tábla
 
-Ez a tábla a felhasználók rendeléseit tárolja. Minden rendeléshez tartozik egy **user_id** (aki leadta a rendelést), **restaurant_id** (melyik étteremtől rendeltek), **status** (rendelés állapota), és az összes rendelés teljes ára. 
-Az **orders** tábla kapcsolódik a **users** és **restaurants** táblákhoz.
+Ez a tábla tárolja a kosarak tartalmát, azaz az egyes kosarakban lévő ételek listáját. 
+A kosarak a cart_id mezőn keresztül kapcsolódnak a **carts** táblához, míg az egyes tételek az ételeket azonosító food_id mezővel a **foods** táblához.
+
+![cart_items.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20cart_items.png)
+
+### 8. orders tábla
+
+Ez a tábla a leadott rendelések adatait tárolja. 
+Minden rendelés kapcsolódik egy felhasználóhoz (user_id), egy kosárhoz (cart_id) és egy szállítási címhez (address_id). 
+A rendelés állapota a status mezőben van tárolva, amely értékei lehetnek például "pending", "in_progress" vagy "completed".
 
 ![orders.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20orders.png)
 
-### 7. courier_orders tábla
+### 9. courier_orders tábla
 
-Ebben a táblában tárolódik a futárok által elfogadott rendelés. 
-Minden bejegyzés kapcsolódik egy **courier_id** (futár), valamint egy **order_id** (rendelés) azonosítóhoz, és tárolja a futár által elfogadott rendelés állapotát (pl. „rendelés átvétele”, „kézbesítés alatt”, stb.).
+Ez a tábla a futárok által kezelt rendelések nyomon követésére szolgál. 
+Minden rekord egy rendelést azonosít (order_id) és a futárt, aki a rendelést kézbesíti (courier_id). 
+A táblában található rendelések a **orders** táblához, míg a futárok a **users** táblához kapcsolódnak.
 
 ![courier_orders.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20courier_orders.png)
 
-### 8. roles tábla
+### 10. sessions tábla
 
-Ez a tábla tárolja a felhasználók szerepköreit, mint például „user” (felhasználó), „courier” (futár), és „admin” (adminisztrátor). 
-A szerepkörök segítenek meghatározni, hogy a felhasználó milyen jogosultságokkal rendelkezik a rendszerben. 
-A **users** tábla a **role_id** mezőn keresztül kapcsolódik a **roles** táblához, így minden felhasználóhoz hozzárendelhető egy szerepkör.
+Ez a tábla a felhasználók aktív munkameneteit rögzíti, például a bejelentkezésük IP-címét, a böngészőjük felhasználói ügynökét, és egyéb munkamenet-adatokat. 
+A sessions tábla jelenleg nem kapcsolódik más táblához.
 
-![roles.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20roles.png)
+![sessions.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20sessions.png)
+
+### 11. migrations tábla
+
+Ez a tábla a Laravel migrációk követésére szolgál.
+A táblában tárolódnak az alkalmazás adatbázisának változásait rögzítő migrációk nevei és azok sorrendje.
+Ez a tábla kizárólag a framework működéséhez szükséges, és nem kapcsolódik közvetlenül más táblákhoz.
+
+![migrations.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20migrations.png)
 
 ### Áttekintés:
 
 ![hudora.png](https://github.com/frake92/AFP2024_2/blob/main/images/8.%20hudora.png)
 
-- A **users** táblában lévő felhasználók kosárban lévő ételeit a **user_cart** tábla kezeli.
+- A **users** táblában lévő felhasználók kosarait a **carts** tábla kezeli. A kosarak tartalmait pedig a **cart_items** tábla kezeli.
 - Az éttermekhez tartozó ételek a **foods** táblában szerepelnek, és mindegyik étteremhez kapcsolódik a **restaurants** tábla.
 - A felhasználók rendeléseit az **orders** táblában rögzítjük, míg a futárok által teljesített rendelések a **courier_orders** táblában találhatóak.
 
