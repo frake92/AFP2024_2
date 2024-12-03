@@ -72,6 +72,12 @@
                                     Nincs kép
                                 @endif
                             </td>
+                            <td>
+                                <form action="{{ route('food.addToCart', $food->id) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success btn-sm">Kosárba</button>
+                                </form>
+                            </td>
                         </tr>
                     @empty
                         <tr>
