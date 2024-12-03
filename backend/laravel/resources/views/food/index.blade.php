@@ -54,7 +54,8 @@
         @if(isset($selectedRestaurant))
         <h2 class="mb-4">{{ $selectedRestaurant->name }} étterem ételei:</h2>
 
-        <table class="table table-striped">
+        <<<<<<< HEAD
+            <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Étel neve</th>
@@ -83,10 +84,52 @@
                 </tr>
                 @endforelse
             </tbody>
-        </table>
-        @else
-        <p>Kérlek, válassz egy éttermet a listából!</p>
-        @endif
+            </table>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Étel neve</th>
+                        <th>Ár</th>
+                        <th>Leírás</th>
+                        <th>Kép</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($selectedRestaurant->foods as $food)
+                    <tr>
+                        <td>{{ $food->name }}</td>
+                        <td>{{ $food->price }} Ft</td>
+                        <td>{{ $food->description }}</td>
+                        <td>
+                            @if($food->picture_path)
+                            <img src="{{ $food->picture_path }}" alt="{{ $food->name }}" style="width: 100px;">
+                            @else
+                            Nincs kép
+                            @endif
+                        </td>
+                        <td>
+                            <form action="{{ route('food.addToCart', $food->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-success btn-sm">Kosárba</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="{{ route('food.addToCart', $food->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-success btn-sm">Kosárba</button>
+                            </form>
+                        </td>
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="4" class="text-center">Nincs étel az étteremhez.</td>
+                    </tr>
+                    @endforelse
+                </tbody>
+            </table>
+            @else
+            <p>Kérlek, válassz egy éttermet a listából!</p>
+            @endif
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
