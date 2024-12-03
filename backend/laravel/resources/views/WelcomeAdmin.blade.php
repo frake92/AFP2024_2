@@ -70,7 +70,7 @@
                         </div>
                         <div class="card-footer text-center">
                             @if (Auth::check())
-                            <a href="{{ route('food.index', ['restaurant' => $restaurant->id]) }}" class="btn btn-primary">Ételek megtekintése</a>
+                            <a href="{{ route('food.index', ['restaurant_id' => $restaurant->id]) }}" class="btn btn-primary">Ételek megtekintése</a>
                             @else
                             <button class="btn btn-secondary" disabled>Jelentkezz be az ételek megtekintéséhez</button>
                             @endif
