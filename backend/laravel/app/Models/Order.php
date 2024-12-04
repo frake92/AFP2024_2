@@ -31,6 +31,9 @@ class Order extends Model
     {
         return $this->belongsTo(Cart::class);
     }
+    
+    
+
 
     // Egy rendelés egy címhez tartozik
     public function address()

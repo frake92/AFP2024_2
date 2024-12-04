@@ -15,28 +15,46 @@ class ProfileController extends Controller
 {
 
     public function regisztralas(Request $request): RedirectResponse
-    {
-        $data = $request->validate([
-            'first_name' => 'required|min:3',
-            'last_name' => 'required|min:3',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:8|confirmed',
-            'phone' => 'required|unique:users,phone'
-        ]);
+{
+    $data = $request->validate([
+        'first_name' => 'required|min:3',
+        'last_name' => 'required|min:3',
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|min:8|confirmed',
+        'phone' => 'required|unique:users,phone',
+        'postal_code' => 'required',
+        'city' => 'required',
+        'street' => 'required',
+        'house_number' => 'required',
+    ]);
+
+    $data['password'] = bcrypt($data['password']);
+    $defaultRoleId = 1;
+
+    // Create the user
+    $newUser = User::create([
+        'first_name' => $data['first_name'],
+        'last_name' => $data['last_name'],
+        'email' => $data['email'],
+        'password' => $data['password'],
+        'phone' => $data['phone'],       
+        'role_id' => $defaultRoleId
+    ]);
+
+    // Store the user's address in the user_addresses table
+    $newUser->addresses()->create([
+        'user_id' => $newUser->id, // Add the user_id here
+        'postal_code' => $data['postal_code'],
+        'city' => $data['city'],
+        'street' => $data['street'],
+        'house_number' => $data['house_number'],
+    ]);
     
-        $data['password'] = bcrypt($data['password']);
-        $defaultRoleId = 1;
-        $newUser = User::create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'password' => $data['password'],
-            'phone' => $data['phone'],
-            'role_id' => $defaultRoleId
-        ]);
-    
-        return redirect(route('belepes'));
-    }
+
+    return redirect(route('belepes'));
+}
+
+
 
 
     public function belepes(Request $request): RedirectResponse
@@ -61,32 +79,49 @@ class ProfileController extends Controller
     }
 
     public function update(Request $request)
-    {
-        $user = auth()->user();
+{
+    $user = auth()->user();
+    $data = $request->validate([
+        'first_name' => 'required|string|min:3',
+        'last_name' => 'required|string|min:3',
+        'email' => 'required|email|unique:users,email,' . $user->id,
+        'phone' => 'required|unique:users,phone,' . $user->id,
+        'password' => 'nullable|confirmed|min:8',
+        'postal_code' => 'required',
+        'city' => 'required',
+        'street' => 'required',
+        'house_number' => 'required',
+    ]);
 
-        $data = $request->validate([
-            'first_name' => 'required|string|min:3',
-            'last_name' => 'required|string|min:3',
-            'email' => 'required|email|unique:users,email,' . $user->id,
-            'phone' => 'required|unique:users,phone,' . $user->id,
-            'password' => 'nullable|confirmed|min:8',
-        ]);
+    $user->first_name = $data['first_name'];
+    $user->last_name = $data['last_name'];
+    $user->email = $data['email'];
+    $user->phone = $data['phone'];
 
-        $user->first_name = $data['first_name'];
-        $user->last_name = $data['last_name'];
-        $user->email = $data['email'];
-        $user->phone = $data['phone'];
-
-        if (!$request->filled('password')) {
-            unset($data['password']);
-        } else {          
-            $data['password'] = bcrypt($data['password']);
-        }
-
-        $user->update($data);
-
-        return redirect()->back()->with('success', 'Profil sikeresen frissítve!');
+    if (!$request->filled('password')) {
+        unset($data['password']);
+    } else {          
+        $data['password'] = bcrypt($data['password']);
     }
+
+    // Update user
+    $user->update($data);
+
+    // Update or create the user's address
+    $user->address()->updateOrCreate([
+        'user_id' => $user->id
+    ], [
+        'postal_code' => $data['postal_code'],
+        'city' => $data['city'],
+        'street' => $data['street'],
+        'house_number' => $data['house_number']
+    ]);
+
+    return redirect()->back()->with('success', 'Profil sikeresen frissítve!');
+}
+
+
+    
 
 
     public function destroy(Request $request): RedirectResponse
