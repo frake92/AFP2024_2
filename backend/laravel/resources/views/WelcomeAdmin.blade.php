@@ -29,8 +29,8 @@
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="#">Főoldal</a></li>
-                </ul>                
-                <a href="{{ route('restaurant.create') }}" class="btn btn-success ms-md-2">Új étterem hozzáadása</a>
+                </ul>
+                <a href="{{ route('restaurant.index') }}" class="btn btn-success ms-md-2">Éttermek kezelése</a>
                 <a href="{{ route('food.create') }}" class="btn btn-primary">Étel hozzáadása</a>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -50,6 +50,39 @@
         </div>
         <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
             <!-- Itt jelenhetnek meg az éttermek -->
+            <div class="row">
+                @forelse ($restaurants as $restaurant)
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        @if ($restaurant->picture_path)
+                        <img src="{{ $restaurant->picture_path }}" class="card-img-top" alt="{{ $restaurant->name }}">
+                        @else
+                        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Nincs kép">
+                        @endif
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $restaurant->name }}</h5>
+                            <p class="card-text">
+                                <strong>Cím:</strong> {{ $restaurant->address }}<br>
+                                <strong>Telefonszám:</strong> {{ $restaurant->phone }}<br>
+                                <strong>Leírás:</strong> {{ Str::limit($restaurant->description, 100) }}
+                            </p>
+                        </div>
+                        <div class="card-footer text-center">
+                            @if (Auth::check())
+                            <a href="{{ route('food.index', ['restaurant_id' => $restaurant->id]) }}" class="btn btn-primary">Ételek megtekintése</a>
+                            @else
+                            <button class="btn btn-secondary" disabled>Jelentkezz be az ételek megtekintéséhez</button>
+                            @endif
+                        </div>
+
+                    </div>
+                </div>
+                @empty
+                <div class="col-12 text-center">
+                    <p>Nincs megjeleníthető étterem.</p>
+                </div>
+                @endforelse
+            </div>
         </div>
     </div>
     <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
