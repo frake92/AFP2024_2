@@ -52,6 +52,7 @@ Route::get('/WelcomeAdmin', function () {
 })->middleware(['auth', 'verified'])->name('WelcomeAdmin');
 
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -62,7 +63,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/WelcomeAdmin', [RestaurantController::class, 'adminIndex'])->name('WelcomeAdmin');
 Route::get('/restaurant', [RestaurantController::class, 'index'])->name('restaurant.index');
 Route::get('/restaurant/create', [RestaurantController::class, 'create'])->name('restaurant.create');
 Route::post('/restaurant', [RestaurantController::class, 'store'])->name('restaurant.store');
@@ -104,4 +104,4 @@ Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 
 
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
