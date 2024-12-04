@@ -35,11 +35,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo(UserAddress::class);
     }
-
-    // Egy felhasználónak több kosara lehet
-    public function carts()
+    public function address()
     {
-        return $this->hasMany(UserCart::class);
+    return $this->hasOne(UserAddress::class); // Assuming your address model is UserAddress
+    }
+
+    public function cart()
+    {
+    return $this->hasOne(Cart::class);
     }
 
     // Egy felhasználónak több rendelése lehet

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Food; // Food modell importálása
 use App\Models\Restaurant; // Az étterem modell importálása
+use App\Models\CartItem;
+use App\Models\Cart;
 
 class FoodController extends Controller
 {
@@ -16,57 +18,39 @@ class FoodController extends Controller
 
 // Controller
 
-// Kosár megjelenítése
-public function showCart()
-{
-    return view('cart');
-}
-
-public function addToCart(Food $food)
-{
-    // Logika, amellyel hozzáadjuk az ételt a kosárhoz
-    // Itt valósíthatod meg a kosár kezelését (session, adatbázis, stb.)
-    session()->push('cart', $food); // Példa session alapú tárolásra
-
-    return redirect()->route('cart'); // A kosár oldalon irányítjuk tovább
-}
 
 
-// Kosár ürítése
-public function clearCart()
-{
-    session()->forget('cart');
-    return redirect()->route('food.cart')->with('success', 'Kosár kiürítve.');
-}
+public function addToCart($foodId)
+    {
+        $user = auth()->user();
 
-// Vásárlás logikája (egyszerűsített példa)
-public function checkout()
-{
-    // Itt történhet a rendelés feldolgozása
-    $cart = session()->get('cart', []);
-    
-    // Rendelés rögzítése, stb. ...
-    
-    // Kosár kiürítése a rendelés után
-    session()->forget('cart');
-    return redirect()->route('food.cart')->with('success', 'Rendelés sikeres!');
-}
+        // Ensure the user has a cart
+        $cart = $user->cart ?? Cart::create(['user_id' => $user->id]);
+
+        // Add food to cart
+        CartItem::create([
+            'cart_id' => $cart->id,
+            'food_id' => $foodId,
+        ]);
+
+        return back()->with('success', 'Étel hozzáadva a kosárhoz!');
+    }
+
 
 
 
 public function index(Request $request)
 {
-    $restaurants = Restaurant::all();
-    $selectedRestaurant = null;
+    $restaurantId = $request->query('restaurant_id');
 
-    if ($request->has('restaurant_id') && $request->restaurant_id) {
-        $selectedRestaurant = Restaurant::with('foods')->find($request->restaurant_id);
+    if ($restaurantId) {
+        $selectedRestaurant = Restaurant::with('foods')->find($restaurantId);
+        $restaurants = Restaurant::all();
+
+        return view('food.index', compact('selectedRestaurant', 'restaurants'));
     }
 
-    return view('food.index', [
-        'restaurants' => $restaurants,
-        'selectedRestaurant' => $selectedRestaurant,
-    ]);
+    return redirect()->route('restaurant.index')->with('error', 'Étterem nincs kiválasztva.');
 }
 
 

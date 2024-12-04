@@ -9,15 +9,16 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Éttermek és Ételek</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Éttermek és Ételek</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                @if(auth()->user()->role_id === 3)
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Főoldal</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('welcome') }}">Főoldal</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('restaurant.index') }}">Éttermek</a>
@@ -25,10 +26,21 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('food.create') }}">Étel hozzáadása</a>
                     </li>
-                </ul>
-            </div>
+                @elseif(auth()->user()->role_id === 1)
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('welcome') }}">Főoldal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('cart.index') }}">Kosár</a>
+                    </li>
+
+                @endif
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+
+
 
     <!-- Content -->
     <div class="container mt-4">
@@ -36,8 +48,7 @@
         <form action="{{ route('food.index') }}" method="GET" class="mb-4">
             <div class="form-group">
                 <label for="restaurant_id">Válassz éttermet</label>
-                <select name="restaurant_id" class="form-control" id="restaurant_id" onchange="this.form.submit()">
-                    <option value="">-- Válassz éttermet --</option>
+                <select name="restaurant_id" class="form-control" id="restaurant_id" onchange="this.form.submit()">                    
                     @foreach($restaurants as $restaurant)
                         <option value="{{ $restaurant->id }}" {{ request('restaurant_id') == $restaurant->id ? 'selected' : '' }}>
                             {{ $restaurant->name }}
@@ -75,7 +86,11 @@
                             <td>
                                 <form action="{{ route('food.addToCart', $food->id) }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-success btn-sm">Kosárba</button>
+                                    <form action="{{ route('food.addToCart', $food->id) }}" method="POST">
+    @csrf
+    <button type="submit" class="btn btn-success btn-sm">Kosárba</button>
+</form>
+
                                 </form>
                             </td>
                         </tr>

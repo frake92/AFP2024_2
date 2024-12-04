@@ -1,4 +1,10 @@
 <div class="container">
+<script>
+    function showMessage() {
+        alert("Fejlesztés alatt!");
+    }
+</script>
+
     <a class="navbar-brand d-flex align-items-center" href="#">
         <span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon">
             <!-- SVG ikon -->
@@ -21,6 +27,13 @@
             @auth
                 <!-- Ha a felhasználó be van jelentkezve -->
                 <li class="nav-item"><a class="nav-link" href="{{route('profil.edit', ['user' => Auth::user()->id])}}">Profil módosítás</a></li>
+                @if (Auth::check())
+                <li class="nav-item">
+    <a class="nav-link" href="#" onclick="showMessage()">Rendeléseim</a>
+</li>
+
+@endif
+
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Kijelentkezés</a>
                 </li>                

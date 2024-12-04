@@ -29,7 +29,7 @@
                 @endif
                 <div class="card-body">
                     <h5 class="card-title">{{ $restaurant->name }}</h5>
-                    <p class="card-text">
+                    <p class="card-text">                    
                         <strong>Cím:</strong> {{ $restaurant->address }}<br>
                         <strong>Telefonszám:</strong> {{ $restaurant->phone }}<br>
                         <strong>Leírás:</strong> {{ Str::limit($restaurant->description, 100) }}
@@ -37,7 +37,8 @@
                 </div>
             <div class="card-footer text-center">
                 @if (Auth::check())
-                    <a href="{{ route('food.index', ['restaurant' => $restaurant->id]) }}" class="btn btn-primary">Ételek megtekintése</a>
+                <a href="{{ route('food.index', ['restaurant_id' => $restaurant->id]) }}" class="btn btn-primary">Ételek megtekintése</a>
+
                 @else
                     <button class="btn btn-secondary" disabled>Jelentkezz be az ételek megtekintéséhez</button>
                 @endif

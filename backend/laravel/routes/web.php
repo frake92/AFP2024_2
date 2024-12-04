@@ -7,6 +7,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
+
 
 
 
@@ -71,7 +74,6 @@ Route::post('food', [FoodController::class, 'store'])->name('food.store');
 Route::get('restaurant/foods', [FoodController::class, 'index'])->name('food.index');
 Route::get('/', [RestaurantController::class, 'welcome'])->name('welcome');
 Route::get('cart', [FoodController::class, 'showCart'])->name('food.cart');
-Route::post('/cart/add/{food}', [FoodController::class, 'addToCart'])->name('food.addToCart');
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::get('/cart', [CartController::class, 'showCart'])->name('food.cart');
 Route::get('/cart', [CartController::class, 'showCart'])->name('cart');
@@ -79,6 +81,24 @@ Route::get('/food/cart', [FoodController::class, 'addToCart'])->name('food.cart'
 Route::get('/checkout', [CartController::class, 'checkout'])->name('food.checkout');
 Route::get('cart/clear', [FoodController::class, 'clearCart'])->name('food.clearCart');
 Route::get('checkout', [FoodController::class, 'checkout'])->name('food.checkout');
+Route::post('/food/{food}/add-to-cart', [FoodController::class, 'addToCart'])->name('food.addToCart');
+Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::get('cart', [CartController::class, 'index'])->name('food.cart');
+Route::post('cart/{foodId}/add', [FoodController::class, 'addToCart'])->name('food.addToCart');
+Route::get('checkout', [CartController::class, 'checkout'])->name('checkout');
+Route::delete('/cart/remove/{itemId}', [CartController::class, 'removeItem'])->name('cart.remove');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/user/address/store', [UserController::class, 'storeAddress'])->name('user.address.store');
+Route::post('/checkout/placeOrder', [CheckoutController::class, 'placeOrder'])->name('checkout.placeOrder');
+Route::get('/order/confirmation', [OrderController::class, 'confirmation'])->name('order.confirmation');
+Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
+Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+
+
+
+
+
 
 
 

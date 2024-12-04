@@ -3,14 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\CartItem;
+
 
 class CartController extends Controller
 {
     public function index()
     {
-        $cart = session('cart', []); // Kosár tartalom lekérése
-        return view('cart', compact('cart')); // Kosár megjelenítése
+        // Get the user's cart and its items with associated food
+        $cart = auth()->user()->cart;
+        $cartItems = $cart ? $cart->items()->with('food')->get() : [];
+
+        return view('cart', compact('cartItems'));
     }
+
 
     // Kosár megjelenítése
 public function showCart()
@@ -18,33 +24,31 @@ public function showCart()
     return view('cart');
 }
 
-public function addToCart(Food $food)
-{
-    // Logika, amellyel hozzáadjuk az ételt a kosárhoz
-    // Itt valósíthatod meg a kosár kezelését (session, adatbázis, stb.)
-    session()->push('cart', $food); // Példa session alapú tárolásra
 
-    return redirect()->route('cart'); // A kosár oldalon irányítjuk tovább
+
+public function removeItem($itemId)
+{
+    // Find the cart item by ID
+    $cartItem = CartItem::findOrFail($itemId);
+
+    // Delete the item from the cart
+    $cartItem->delete();
+
+    // Redirect back to the cart page with a success message
+    return redirect()->route('cart.index')->with('success', 'Item removed from the cart.');
 }
 
-
-// Kosár ürítése
-public function clearCart()
-{
-    session()->forget('cart');
-    return redirect()->route('food.cart')->with('success', 'Kosár kiürítve.');
-}
 
 // Vásárlás logikája (egyszerűsített példa)
 public function checkout()
 {
-    // Itt történhet a rendelés feldolgozása
-    $cart = session()->get('cart', []);
-    
-    // Rendelés rögzítése, stb. ...
-    
-    // Kosár kiürítése a rendelés után
-    session()->forget('cart');
-    return redirect()->route('food.cart')->with('success', 'Rendelés sikeres!');
+    $user = auth()->user();
+    $cartItems = $user->cart->items; // Fetch cart items for the logged-in user
+    $totalAmount = $cartItems->sum(function ($item) {
+        return $item->food->price; // Calculate total amount from cart items
+    });
+
+    return view('checkout', compact('cartItems', 'totalAmount'));
 }
+
 }

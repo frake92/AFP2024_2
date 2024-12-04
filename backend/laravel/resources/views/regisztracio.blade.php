@@ -1,23 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Regisztráció</title>
+    <style>
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        .input-group, .form-group {
+            margin-bottom: 15px;
+        }
+        input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Regisztráció</h1>
+        
         @if ($errors->has('email'))
-                <div class="alert alert-danger">
-                    {{ 'Ez az e-mail cím már használatban van!' }}
-                </div>
+            <div class="alert alert-danger">
+                {{ 'Ez az e-mail cím már használatban van!' }}
+            </div>
         @endif
         @if ($errors->has('phone'))
-                <div class="alert alert-danger">
-                    {{ 'Ez a telefonszám már használatban van!' }}
-                </div>
+            <div class="alert alert-danger">
+                {{ 'Ez a telefonszám már használatban van!' }}
+            </div>
         @endif
+
         <form method="POST" action="{{ route('user.regisztralas') }}">
             @csrf
             <div class="input-group">
@@ -38,7 +68,26 @@
             <div class="input-group">
                 <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Jelszó megerősítése" required>
             </div>
-            <button type="submit">Regisztráció</button>
+
+            <!-- Address Form -->
+            <div class="form-group">
+                <label for="postal_code">Irányítószám</label>
+                <input type="text" name="postal_code" id="postal_code" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="city">Város</label>
+                <input type="text" name="city" id="city" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="street">Utca</label>
+                <input type="text" name="street" id="street" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="house_number">Házszám</label>
+                <input type="text" name="house_number" id="house_number" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Regisztráció</button>
         </form>
     </div>
 </body>

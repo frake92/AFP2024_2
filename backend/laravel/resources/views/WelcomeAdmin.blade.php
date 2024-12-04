@@ -35,8 +35,7 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" class="btn btn-primary">Kijelentkezés</button>
-                </form>
-                <!-- Az étterem nevére kattintva a hozzá tartozó ételek listáját nézhetjük meg -->
+                </form>                
                 
 
 
