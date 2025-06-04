@@ -37,7 +37,7 @@ class ProfileController extends Controller
         'last_name' => $data['last_name'],
         'email' => $data['email'],
         'password' => $data['password'],
-        'phone' => $data['phone'],       
+        'phone' => $data['phone'],
         'role_id' => $defaultRoleId
     ]);
 
@@ -49,7 +49,7 @@ class ProfileController extends Controller
         'street' => $data['street'],
         'house_number' => $data['house_number'],
     ]);
-    
+
 
     return redirect(route('belepes'));
 }
@@ -58,21 +58,31 @@ class ProfileController extends Controller
 
 
     public function belepes(Request $request): RedirectResponse
-    {
-        $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|min:8',
-        ]);
+{
+    $credentials = $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate(); 
-            return redirect()->intended('');
+    if (Auth::attempt($credentials)) {
+        $request->session()->regenerate();
+
+        $user = Auth::user();
+
+        if ($user->role_id === 1) {
+            return redirect()->route('WelcomeAdmin');
+        } elseif ($user->role_id === 2) {
+            return redirect()->route('futar');
+        } else {
+            return redirect()->route('welcome');
         }
-
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
     }
+
+    return back()->withErrors([
+        'email' => 'The provided credentials do not match our records.',
+    ])->onlyInput('email');
+}
+
 
     public function edit(User $user) {
         return view('profil', ['user' => $user]);
@@ -80,7 +90,7 @@ class ProfileController extends Controller
 
     public function update(Request $request)
 {
-    $user = auth()->user();
+    $user = Auth::user();
     $data = $request->validate([
         'first_name' => 'required|string|min:3',
         'last_name' => 'required|string|min:3',
@@ -100,7 +110,7 @@ class ProfileController extends Controller
 
     if (!$request->filled('password')) {
         unset($data['password']);
-    } else {          
+    } else {
         $data['password'] = bcrypt($data['password']);
     }
 
@@ -121,7 +131,7 @@ class ProfileController extends Controller
 }
 
 
-    
+
 
 
     public function destroy(Request $request): RedirectResponse
