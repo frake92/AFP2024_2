@@ -1,15 +1,5 @@
 @extends('public.main_layout')
 @section('dynamic_content')
-    @if (Auth::check() && Auth::user()->role_id == 2)
-        <script>
-            window.location.href = "{{ route('futar') }}";
-        </script>
-    @endif
-    @if (Auth::check() && Auth::user()->role_id == 3)
-        <script>
-            window.location.href = "{{ route('WelcomeAdmin') }}";
-        </script>
-    @endif
 
     <div class="container py-4 py-xl-5">
         <div class="row mb-5">
@@ -29,7 +19,7 @@
                 @endif
                 <div class="card-body">
                     <h5 class="card-title">{{ $restaurant->name }}</h5>
-                    <p class="card-text">                    
+                    <p class="card-text">
                         <strong>Cím:</strong> {{ $restaurant->address }}<br>
                         <strong>Telefonszám:</strong> {{ $restaurant->phone }}<br>
                         <strong>Leírás:</strong> {{ Str::limit($restaurant->description, 100) }}

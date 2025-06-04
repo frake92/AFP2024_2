@@ -39,15 +39,15 @@ Route::post('/logout', [ProfileController::class, 'kijelentkezes'])->name('kijel
 Route::get('/profil/{user}/edit', [ProfileController::class, 'edit'])->name('profil.edit');
 Route::put('/profil/update', [ProfileController::class, 'update'])->name('profil.update');
 
-Route::get('/loggedin', function () {
+Route::get('/user', function () {
     return view('welcome');
 })->middleware(['auth', 'verified'])->name('loggedin');
 
-Route::get('/futar', function () {
+Route::get('/courier', function () {
     return view('futar');
 })->middleware(['auth', 'verified'])->name('futar');
 
-Route::get('/WelcomeAdmin', function () {
+Route::get('/admin', function () {
     return view('WelcomeAdmin');
 })->middleware(['auth', 'verified'])->name('WelcomeAdmin');
 

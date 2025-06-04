@@ -29,7 +29,7 @@ class ProfileController extends Controller
     ]);
 
     $data['password'] = bcrypt($data['password']);
-    $defaultRoleId = 1;
+    $defaultRoleId = 3;
 
     // Create the user
     $newUser = User::create([
@@ -58,30 +58,31 @@ class ProfileController extends Controller
 
 
     public function belepes(Request $request): RedirectResponse
-{
-    $credentials = $request->validate([
-        'email' => 'required|email',
-        'password' => 'required',
-    ]);
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
-    if (Auth::attempt($credentials)) {
-        $request->session()->regenerate();
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
 
-        $user = Auth::user();
+            $user = Auth::user();
 
-        if ($user->role_id === 1) {
-            return redirect()->route('WelcomeAdmin');
-        } elseif ($user->role_id === 2) {
-            return redirect()->route('futar');
-        } else {
-            return redirect()->route('welcome');
+            if ($user->role_id == 1) {
+                return redirect()->route('WelcomeAdmin');
+            } elseif ($user->role_id == 2) {
+                return redirect()->route('futar');
+            } else {
+                return redirect()->route('loggedin');
+            }
         }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->onlyInput('email');
     }
 
-    return back()->withErrors([
-        'email' => 'The provided credentials do not match our records.',
-    ])->onlyInput('email');
-}
 
 
     public function edit(User $user) {
